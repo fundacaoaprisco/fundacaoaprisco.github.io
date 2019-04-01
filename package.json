@@ -1,0 +1,40 @@
+{
+  "name": "fundacaoaprisco.github.io",
+  "version": "1.0.0",
+  "description": "Site da Fundação Aprisco - ONG",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fundacaoaprisco/fundacaoaprisco.github.io.git"
+  },
+  "keywords": [
+    "ong",
+    "blog",
+    "fundação",
+    "aprisco"
+  ],
+  "author": "Salatiel Queiroz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fundacaoaprisco/fundacaoaprisco.github.io/issues"
+  },
+  "homepage": "https://github.com/fundacaoaprisco/fundacaoaprisco.github.io#readme",
+  "dependencies": {
+    "gatsby": "^2.3.4",
+    "gatsby-plugin-netlify-cms": "^3.0.17",
+    "gatsby-source-filesystem": "^2.0.28",
+    "gatsby-transformer-remark": "^2.3.8",
+    "netlify-cms": "^2.9.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
