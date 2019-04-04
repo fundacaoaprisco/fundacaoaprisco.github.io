@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: erquhart/gatsby-netlify-cms-example #replace with your username/repo
+  name: git-gateway
+  branch: gatsby
 
 media_folder: static/assets
 
