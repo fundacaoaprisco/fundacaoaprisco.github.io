@@ -1,9 +1,5 @@
 ---
-path: blog2
-date: 2019-02-27T17:18:42.002Z
-title: outro blog title
+path: "/blog/my-first-post"
+date: "2017-11-07"
+title: "My first blog post"
 ---
-
-- Outro blog text
-
-a;sdjaljsdlakjsd
