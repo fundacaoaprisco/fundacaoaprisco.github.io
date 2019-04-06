@@ -5,9 +5,9 @@ backend:
 media_folder: static/assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
+  - name: "Blog"
+    label: "Blog"
+    folder: "src/pages/blog"
     create: true
     fields:
       - { name: path, label: Path }
