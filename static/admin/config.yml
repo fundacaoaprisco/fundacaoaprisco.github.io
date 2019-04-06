@@ -1,0 +1,16 @@
+backend:
+  name: git-gateway
+  branch: gatsby
+
+media_folder: static/assets
+
+collections:
+  - name: "Blog"
+    label: "Blog"
+    folder: "src/pages/blog"
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
