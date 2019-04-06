@@ -33,6 +33,39 @@ module.exports = {
           })
         ]
       }
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@components": "src/components",
+          "@atoms": "src/components/atoms"
+        },
+        extensions: ["js"]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layouts/`)
+      }
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `IBM Plex Serif`,
+            subsets: [`latin`],
+            variants: [`300`, `400`]
+          },
+          {
+            family: `Overpass`,
+            subsets: [`latin`],
+            variants: [`400`, `700`]
+          }
+        ]
+      }
     }
   ]
 };
