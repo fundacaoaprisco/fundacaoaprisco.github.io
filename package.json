@@ -20,7 +20,8 @@
     "ong",
     "blog",
     "fundação",
-    "aprisco"
+    "aprisco",
+    "fundação aprisco"
   ],
   "author": "Salatiel Queiroz",
   "license": "ISC",
@@ -31,10 +32,18 @@
   "dependencies": {
     "gatsby": "^2.3.4",
     "gatsby-plugin-netlify-cms": "^3.0.17",
+    "gatsby-plugin-postcss": "^2.0.7",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
     "netlify-cms": "^2.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "postcss-css-variables": "^0.12.0",
+    "postcss-global-import": "^1.0.6",
+    "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.1.2"
   }
 }
