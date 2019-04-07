@@ -1,11 +1,19 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react'
+import { graphql } from 'gatsby'
 
-import styles from "./styles.module.css";
+import { Button, Container } from '@atoms'
+import { Navbar } from '@organisms'
+
+import styles from './styles.module.css'
 
 export default ({ data }) => (
-  <div className={styles.green}>Hello {data.site.siteMetadata.title}!</div>
-);
+  <Container>
+    <Navbar />
+    <div className={styles.green}>
+      Hello {data.site.siteMetadata.title}! <Button>xablau</Button>
+    </div>
+  </Container>
+)
 
 export const query = graphql`
   query {
@@ -15,4 +23,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
