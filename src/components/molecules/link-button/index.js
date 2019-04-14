@@ -5,10 +5,10 @@ import { Link } from 'gatsby'
 
 import styles from './styles.module.css'
 
-const LinkTo = ({ href, children, navLink }) => (
-  <Link to={href} className={classNames(styles.link, { [styles.navLink]: navLink })}>
+const LinkButton = ({ to, children, navLink }) => (
+  <Link to={to} className={classNames(styles.link, { [styles.navLink]: navLink })}>
     {children}
   </Link>
 )
 
-export default LinkTo
+export default LinkButton
