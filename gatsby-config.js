@@ -65,7 +65,7 @@ module.exports = {
           {
             family: `Overpass`,
             subsets: [`latin`],
-            variants: [`400`, `700`],
+            variants: [`300`, `400`, `700`],
           },
         ],
       },
