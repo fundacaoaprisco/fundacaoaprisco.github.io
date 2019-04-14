@@ -1,4 +1,14 @@
-.jumbrotron {
+.jumbotron {
   border-radius: 4px;
-  
+  background-color: var(--green);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  margin-bottom: 2rem;
+}
+.jumbotronText {
+  margin: 24px 0;
 }
