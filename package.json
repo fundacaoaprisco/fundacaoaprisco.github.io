@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.5.0",
+    "eslint-config-cheesecakelabs": "^3.0.2",
     "postcss-css-variables": "^0.12.0",
     "postcss-global-import": "^1.0.6",
     "postcss-import": "^12.0.1",
