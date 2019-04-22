@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-
 import { Link } from 'gatsby'
 
 import styles from './styles.module.css'
