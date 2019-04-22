@@ -62,12 +62,15 @@ const Heading = ({ type, children, white, className, ...props }) => {
         </h4>
       )
       break
+    default:
+      heading = null
+      break
   }
   return heading
 }
 
 Heading.propTypes = {
-  type: PropTypes.oneOf[('h1', 'h2', 'h3', 'h4')],
+  type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4']),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   white: PropTypes.bool,
