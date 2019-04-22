@@ -1,15 +1,15 @@
-const autoprefixer = require("autoprefixer");
-const postCSSImport = require("postcss-import")();
-const postCSSNested = require("postcss-nested");
-const postCSSVariables = require("postcss-css-variables");
+const autoprefixer = require('autoprefixer')
+const postCSSImport = require('postcss-import')()
+const postCSSNested = require('postcss-nested')
+const postCSSVariables = require('postcss-css-variables')
 
-const cssVariables = require("./src/config/css-variables");
+const cssVariables = require('./src/config/css-variables')
 
-const postCSSAutoprefixer = autoprefixer({ browsers: ["IE 9", "iOS 7"] });
+const postCSSAutoprefixer = autoprefixer({ browsers: ['IE 9', 'iOS 7'] })
 
 module.exports = {
   siteMetadata: {
-    title: `Title from siteMetadata`
+    title: `Title from siteMetadata`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
@@ -17,8 +17,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages/blog`,
-        name: "markdown-pages"
-      }
+        name: 'markdown-pages',
+      },
     },
     `gatsby-transformer-remark`,
     {
@@ -29,10 +29,46 @@ module.exports = {
           postCSSImport,
           postCSSNested,
           postCSSVariables({
-            variables: cssVariables
-          })
-        ]
-      }
-    }
-  ]
-};
+            variables: cssVariables,
+          }),
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@images': 'static/images',
+          '@components': 'src/components',
+          '@atoms': 'src/components/atoms',
+          '@molecules': 'src/components/molecules',
+          '@organisms': 'src/components/organisms',
+        },
+        extensions: ['js'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layouts/`),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `IBM Plex Serif`,
+            subsets: [`latin`],
+            variants: [`300`, `400`],
+          },
+          {
+            family: `Overpass`,
+            subsets: [`latin`],
+            variants: [`300`, `400`, `700`],
+          },
+        ],
+      },
+    },
+  ],
+}

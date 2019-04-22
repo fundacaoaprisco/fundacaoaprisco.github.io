@@ -1,0 +1,16 @@
+.text {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.textWhite {
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  font-weight: 300;
+}

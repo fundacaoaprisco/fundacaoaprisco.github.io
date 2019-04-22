@@ -1,0 +1,13 @@
+.link {
+  font-family: var(--font-text);
+  color: var(--color-primary);
+  cursor: pointer;
+  text-decoration: none;
+  padding: 1rem 0;
+}
+.navLink {
+  color: var(--color-text);
+  &:hover {
+    color: var(--color-primary);
+  }
+}

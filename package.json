@@ -30,17 +30,23 @@
   },
   "homepage": "https://github.com/fundacaoaprisco/fundacaoaprisco.github.io#readme",
   "dependencies": {
+    "classnames": "^2.2.6",
     "gatsby": "^2.3.4",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-layout": "^1.0.14",
     "gatsby-plugin-netlify-cms": "^3.0.17",
     "gatsby-plugin-postcss": "^2.0.7",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.1",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-remark": "^2.3.8",
     "netlify-cms": "^2.9.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-simple-flex-grid": "^1.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^9.5.0",
+    "eslint-config-cheesecakelabs": "^3.0.2",
     "postcss-css-variables": "^0.12.0",
     "postcss-global-import": "^1.0.6",
     "postcss-import": "^12.0.1",
