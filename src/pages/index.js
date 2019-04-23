@@ -35,10 +35,12 @@ const PROJECTS = [
   },
 ]
 
-export default () => (
+const Index = () => (
   <Container>
     <Navbar />
     <Jumbotron />
     <ProjectsList projects={PROJECTS} />
   </Container>
 )
+
+export default Index
