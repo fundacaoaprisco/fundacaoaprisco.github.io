@@ -6,8 +6,6 @@ import { Jumbotron } from '@molecules'
 
 import { Navbar, ProjectsList } from '@organisms'
 
-// import styles from './styles.module.css'
-
 const PROJECTS = [
   {
     title: 'Infocentro',
