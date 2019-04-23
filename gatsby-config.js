@@ -1,3 +1,5 @@
+const resolve = require('./config/resolve')
+
 module.exports = {
   siteMetadata: {
     title: `Title from siteMetadata`,
@@ -16,18 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
-        alias: {
-          '@atoms': 'src/components/atoms',
-          '@molecules': 'src/components/molecules',
-          '@organisms': 'src/components/organisms',
-          '@templates': 'src/components/templates',
-          '@components': 'src/components',
-          '@images': 'src/images',
-          '@styles': 'src/styles',
-          '@config': 'src/config',
-          '@pages': 'src/pages',
-        },
-        extensions: ['js'],
+        alias: resolve.alias,
       },
     },
     {
