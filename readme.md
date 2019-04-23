@@ -14,7 +14,7 @@ Get started
 `git clone git@github.com:fundacaoaprisco/fundacaoaprisco.github.io.git`
 
 3. Install depedencies:
-`yarn install` or `npm install`
+`yarn`
 
 4. Run Gatsby the server. 
 `yarn dev`
