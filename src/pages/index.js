@@ -6,8 +6,6 @@ import { Jumbotron } from '@molecules'
 
 import { Navbar, ProjectsList } from '@organisms'
 
-// import styles from './styles.module.css'
-
 const PROJECTS = [
   {
     title: 'Infocentro',
@@ -35,10 +33,12 @@ const PROJECTS = [
   },
 ]
 
-export default () => (
+const Index = () => (
   <Container>
     <Navbar />
     <Jumbotron />
     <ProjectsList projects={PROJECTS} />
   </Container>
 )
+
+export default Index
