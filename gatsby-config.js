@@ -19,6 +19,7 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: resolve.alias,
+      },
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
