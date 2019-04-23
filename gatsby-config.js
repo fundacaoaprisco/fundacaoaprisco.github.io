@@ -1,12 +1,3 @@
-const autoprefixer = require('autoprefixer')
-const postCSSImport = require('postcss-import')()
-const postCSSNested = require('postcss-nested')
-const postCSSVariables = require('postcss-css-variables')
-
-const cssVariables = require('./src/config/css-variables')
-
-const postCSSAutoprefixer = autoprefixer({ browsers: ['IE 9', 'iOS 7'] })
-
 module.exports = {
   siteMetadata: {
     title: `Title from siteMetadata`,
@@ -21,36 +12,22 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          postCSSAutoprefixer,
-          postCSSImport,
-          postCSSNested,
-          postCSSVariables({
-            variables: cssVariables,
-          }),
-        ],
-      },
-    },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          '@images': 'static/images',
-          '@components': 'src/components',
           '@atoms': 'src/components/atoms',
           '@molecules': 'src/components/molecules',
           '@organisms': 'src/components/organisms',
+          '@templates': 'src/components/templates',
+          '@components': 'src/components',
+          '@images': 'src/images',
+          '@styles': 'src/styles',
+          '@config': 'src/config',
+          '@pages': 'src/pages',
         },
         extensions: ['js'],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layouts/`),
       },
     },
     {
