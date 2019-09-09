@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -5,7 +6,12 @@ import classNames from 'classnames'
 import styles from './styles.module.css'
 
 const Button = ({ children, white, type, onClick, className, ...props }) => (
-  <button type={type} onClick={onClick} className={classNames(styles.btn, { [styles.white]: white }, className)} {...props}>
+  <button
+    type={type}
+    onClick={onClick}
+    className={classNames(styles.btn, { [styles.white]: white }, className)}
+    {...props}
+  >
     {children}
   </button>
 )
