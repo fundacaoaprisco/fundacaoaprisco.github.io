@@ -1,4 +1,4 @@
-const resolve = require('./config/resolve')
+const resolvers = require('./gatsby.resolve')
 
 module.exports = {
   siteMetadata: {
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
-        alias: resolve.alias,
+        alias: resolvers.resolve.alias,
       },
     },
     {
