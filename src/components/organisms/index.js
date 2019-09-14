@@ -1,2 +1,2 @@
 export { default as Navbar } from './navbar'
-export { default as ProjectsList } from './projects-list'
+export { default as FeaturedProjectsList } from './featured-project-list'

@@ -1,65 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 
-import styles from './styles.module.css'
+import { StyledH1, StyledH2, StyledH3, StyledH4 } from './styled'
 
 const Heading = ({ type, children, white, className, ...props }) => {
   let heading
   switch (type) {
     case 'h1':
       heading = (
-        <h1
-          className={classNames(
-            styles.heading,
-            styles.h1,
-            { [styles.headingWhite]: white },
-            className
-          )}
-          {...props}
-        >
+        <StyledH1 as="h1" white={white} className={className} {...props}>
           {children}
-        </h1>
+        </StyledH1>
       )
       break
     case 'h2':
       heading = (
-        <h2
-          className={classNames(
-            styles.heading,
-            styles.h2,
-            { [styles.headingWhite]: white },
-            className
-          )}
-          {...props}
-        >
+        <StyledH2 as="h2" white={white} className={className} {...props}>
           {children}
-        </h2>
+        </StyledH2>
       )
       break
     case 'h3':
       heading = (
-        <h3
-          className={classNames(
-            styles.heading,
-            styles.h3,
-            { [styles.headingWhite]: white },
-            className
-          )}
-          {...props}
-        >
+        <StyledH3 as="h3" white={white} className={className} {...props}>
           {children}
-        </h3>
+        </StyledH3>
       )
       break
     case 'h4':
       heading = (
-        <h4
-          className={classNames(styles.heading, styles.h4, { [styles.headingWhite]: white })}
-          {...props}
-        >
+        <StyledH4 as="h4" white={white} className={className} {...props}>
           {children}
-        </h4>
+        </StyledH4>
       )
       break
     default:

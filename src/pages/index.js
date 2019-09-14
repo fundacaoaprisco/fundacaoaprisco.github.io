@@ -4,7 +4,7 @@ import { Container } from '@atoms'
 
 import { Jumbotron } from '@molecules'
 
-import { Navbar, ProjectsList } from '@organisms'
+import { Navbar, FeaturedProjectsList } from '@organisms'
 
 const PROJECTS = [
   {
@@ -16,7 +16,7 @@ const PROJECTS = [
     button: 'Leia mais',
   },
   {
-    title: 'Infocentro',
+    title: 'Infocentro2',
     text:
       'O objetivo é fomentar o desenvolvimento profissional das camadas mais pobres de Feira de Santana, através de cursos básicos nas áreas de informática e internet.',
     image: 'https://picsum.photos/350/300',
@@ -24,7 +24,7 @@ const PROJECTS = [
     button: 'Leia mais',
   },
   {
-    title: 'Infocentro',
+    title: 'Infocentro3',
     text:
       'O objetivo é fomentar o desenvolvimento profissional das camadas mais pobres de Feira de Santana, através de cursos básicos nas áreas de informática e internet.',
     image: 'https://picsum.photos/350/300',
@@ -32,7 +32,7 @@ const PROJECTS = [
     button: 'Leia mais',
   },
   {
-    title: 'Infocentro',
+    title: 'Infocentro4',
     text:
       'O objetivo é fomentar o desenvolvimento profissional das camadas mais pobres de Feira de Santana, através de cursos básicos nas áreas de informática e internet.',
     image: 'https://picsum.photos/350/300',
@@ -45,7 +45,7 @@ const Index = () => (
   <Container>
     <Navbar />
     <Jumbotron />
-    <ProjectsList projects={PROJECTS} />
+    <FeaturedProjectsList projects={PROJECTS} />
   </Container>
 )
 

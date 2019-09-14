@@ -1,5 +1,17 @@
-import '@styles/base.css'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const BaseTemplate = ({ children }) => children
+import GlobalStyles from '@styles/global'
+
+const BaseTemplate = ({ children }) => (
+  <>
+    <GlobalStyles />
+    {children}
+  </>
+)
+
+BaseTemplate.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default BaseTemplate

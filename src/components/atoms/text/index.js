@@ -1,21 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 
-import styles from './styles.module.css'
+import { StyledText, StyledSubTitle } from './styled'
 
-const Text = ({ children, white, subtitle, className, ...props }) => (
-  <p
-    className={classNames(
-      styles.text,
-      { [styles.textWhite]: white, [styles.subtitle]: subtitle },
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </p>
-)
+const Text = ({ children, white, subtitle, className }) =>
+  subtitle ? (
+    <StyledSubTitle className={className} white={white} subtitle={subtitle}>
+      {children}
+    </StyledSubTitle>
+  ) : (
+    <StyledText className={className} white={white} subtitle={subtitle}>
+      {children}
+    </StyledText>
+  )
 
 Text.propTypes = {
   children: PropTypes.node.isRequired,

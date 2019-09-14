@@ -5,6 +5,7 @@ module.exports = {
     title: `Title from siteMetadata`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -14,7 +15,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
-    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
