@@ -3,15 +3,20 @@ import PropTypes from 'prop-types'
 
 import { Card, SubtitleBar } from '@molecules'
 
-const ProjectsList = ({ projects }) => {
-  const renderProjectsList = () => projects.map(project => <Card content={project} />)
-  return (
-    <Fragment>
-      <SubtitleBar text="Projetos em destaque" />
-      {renderProjectsList()}
-    </Fragment>
-  )
-}
+import { Grid } from '@material-ui/core'
+
+const ProjectsList = ({ projects }) => (
+  <Fragment>
+    <SubtitleBar text="Projetos em destaque" />
+    <Grid container spacing={3}>
+      {projects.map(project => (
+        <Grid item xs={12} sm={6} md={3}>
+          <Card content={project} />
+        </Grid>
+      ))}
+    </Grid>
+  </Fragment>
+)
 
 ProjectsList.propTypes = {
   projects: PropTypes.arrayOf(

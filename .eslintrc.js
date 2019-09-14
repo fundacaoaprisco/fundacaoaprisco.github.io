@@ -12,7 +12,7 @@ module.exports = {
     "settings": {
       "import/resolver": {
         "webpack": {
-          "config": "./config/resolve.js"
+          "config": "gatsby.resolve.js"
         }
       }
     },
