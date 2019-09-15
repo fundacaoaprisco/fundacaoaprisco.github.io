@@ -3,15 +3,22 @@ import PropTypes from 'prop-types'
 
 import { Text } from '@atoms'
 
-import styles from './styles.module.css'
+import { StyledSubTitleBar } from './styled'
 
-const SubtitleBar = ({ text, button }) => {
-  return (
-    <div className={styles.subtitleBar}>
-      <Text subtitle>{text}</Text>
-      {button}
-    </div>
-  )
+const SubtitleBar = ({ text, button }) => (
+  <StyledSubTitleBar>
+    <Text subtitle>{text}</Text>
+    {button && button}
+  </StyledSubTitleBar>
+)
+
+SubtitleBar.propTypes = {
+  text: PropTypes.string.isRequired,
+  button: PropTypes.node,
+}
+
+SubtitleBar.defaultProps = {
+  button: undefined,
 }
 
 export default SubtitleBar

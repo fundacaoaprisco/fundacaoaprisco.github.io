@@ -1,34 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { Link } from 'gatsby'
-
-import { Heading, Text } from '@atoms'
 
 import { LinkButton } from '@molecules'
 
-import styles from './styles.module.css'
+import { StyledCard, ImageWrapper, CardTitle, CardText } from './styled'
 
 const Card = ({ content, ...props }) => {
   const { image, title, text, href, button } = content
 
   return (
-    <div className={classNames(styles.card)} {...props}>
+    <StyledCard {...props}>
       <Link to={href}>
-        <div className={styles.imageWrapper}>
+        <ImageWrapper>
           <img src={image} alt={title} />
-        </div>
+        </ImageWrapper>
       </Link>
       <Link to={href}>
-        <Heading type="h2" className={styles.cardTitle}>
-          {title}
-        </Heading>
+        <CardTitle type="h3">{title}</CardTitle>
       </Link>
       <Link to={href}>
-        <Text className={styles.cardText}>{text}</Text>
+        <CardText>{text}</CardText>
       </Link>
       {button && <LinkButton to={href}>{button}</LinkButton>}
-    </div>
+    </StyledCard>
   )
 }
 

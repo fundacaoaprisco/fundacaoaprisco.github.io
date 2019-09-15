@@ -5,12 +5,12 @@ import { Card, SubtitleBar } from '@molecules'
 
 import { Grid } from '@material-ui/core'
 
-const ProjectsList = ({ projects }) => (
+const FeaturedProjectsList = ({ projects }) => (
   <Fragment>
     <SubtitleBar text="Projetos em destaque" />
     <Grid container spacing={3}>
       {projects.map(project => (
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid key={`project-list-key-${project.title}`} item xs={12} sm={6} md={3}>
           <Card content={project} />
         </Grid>
       ))}
@@ -18,7 +18,7 @@ const ProjectsList = ({ projects }) => (
   </Fragment>
 )
 
-ProjectsList.propTypes = {
+FeaturedProjectsList.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -30,4 +30,4 @@ ProjectsList.propTypes = {
   ).isRequired,
 }
 
-export default ProjectsList
+export default FeaturedProjectsList

@@ -1,21 +1,21 @@
 import React from 'react'
 
-import { Heading, Text, Button } from '@atoms'
+import { Heading, Button } from '@atoms'
 
-import styles from './styles.module.css'
+import { StyledJumbotron, JumbotronText } from './styled'
 
 const Jumbotron = () => (
-  <div className={styles.jumbotron}>
-    <Heading type="h1">
+  <StyledJumbotron>
+    <Heading type="h1" white>
       Comunidade que se
       <br /> propõe a fazer o bem.
     </Heading>
-    <Text className={styles.jumbotronText} white>
+    <JumbotronText white>
       Promovemos projetos sociais voltados à educação,
       <br /> cultura, inclusão social e geração de renda.
-    </Text>
+    </JumbotronText>
     <Button white>Veja nossos projetos</Button>
-  </div>
+  </StyledJumbotron>
 )
 
 export default Jumbotron

@@ -1,16 +1,22 @@
-.card {
-}
-.cardTitle {
+import styled from 'styled-components'
+
+import { Heading, Text } from '@atoms'
+
+export const StyledCard = styled.div``
+
+export const CardTitle = styled(Heading)`
   font-size: 1.5rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   text-decoration: none;
-}
-.cardText {
+`
+
+export const CardText = styled(Text)`
   text-decoration: none;
   margin-bottom: 1.5rem;
-}
-.imageWrapper {
+`
+
+export const ImageWrapper = styled.div`
   width: 100%;
   height: 200px;
   overflow: hidden;
@@ -22,4 +28,4 @@
   & img {
     width: 100%;
   }
-}
+`

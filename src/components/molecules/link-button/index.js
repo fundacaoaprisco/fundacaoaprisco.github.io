@@ -1,13 +1,22 @@
 import React from 'react'
-import classNames from 'classnames'
-import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 
-import styles from './styles.module.css'
+import { StyledLink } from './styled'
 
-const LinkButton = ({ to, children, navLink }) => (
-  <Link to={to} className={classNames(styles.link, { [styles.navLink]: navLink })}>
+const LinkButton = ({ to, children, isNavLink }) => (
+  <StyledLink to={to} isNavLink={isNavLink}>
     {children}
-  </Link>
+  </StyledLink>
 )
+
+LinkButton.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  isNavLink: PropTypes.bool,
+}
+
+LinkButton.defaultProps = {
+  isNavLink: false,
+}
 
 export default LinkButton
