@@ -10,6 +10,11 @@ export const StyledButton = styled.button`
   border: none;
   color: ${({ white }) => (white ? vars['color-primary'] : '#fff')};
   cursor: pointer;
-
   background-color: ${({ white }) => (white ? '#fff' : vars['color-primary'])};
+  transition: all 200ms ease;
+
+  &:hover {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    background-color: ${({ white }) => (white ? '#efefef' : '#0a7d7d')};
+  }
 `

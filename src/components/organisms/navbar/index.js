@@ -16,7 +16,7 @@ const Navbar = () => (
           href="/blog"
           title={link.title}
           key={`link-key-${link.href}`}
-          navLink={i !== navLinks.length - 1}
+          isNavLink={i !== navLinks.length - 1}
         >
           {link.title}
         </LinkButton>
