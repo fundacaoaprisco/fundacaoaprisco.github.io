@@ -4,7 +4,8 @@ import { Logo } from '@atoms'
 
 import { LinkButton } from '@molecules'
 
-import navLinks from './nav-links'
+import navLinks from '@config/nav-links'
+
 import { StyledNavbar, NavItems } from './styled'
 
 const Navbar = () => (
