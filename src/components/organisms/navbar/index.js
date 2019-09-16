@@ -4,7 +4,8 @@ import { Logo } from '@atoms'
 
 import { LinkButton } from '@molecules'
 
-import navLinks from './nav-links'
+import navLinks from '@config/nav-links'
+
 import { StyledNavbar, NavItems } from './styled'
 
 const Navbar = () => (
@@ -16,7 +17,7 @@ const Navbar = () => (
           href="/blog"
           title={link.title}
           key={`link-key-${link.href}`}
-          navLink={i !== navLinks.length - 1}
+          isNavLink={i !== navLinks.length - 1}
         >
           {link.title}
         </LinkButton>

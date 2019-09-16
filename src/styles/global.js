@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import vars from './variables'
+
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
     v2.0 | 20110126
@@ -55,7 +57,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: var(--font-text);
+    font-family: ${vars['font-text']};
     font-size: 16px;
   }
 
