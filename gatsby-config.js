@@ -5,22 +5,22 @@ module.exports = {
     title: `Title from siteMetadata`,
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
-    `gatsby-plugin-netlify-cms`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/pages/blog`,
-        name: 'markdown-pages',
-      },
-    },
-    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: resolvers.resolve.alias,
       },
     },
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content`,
+        name: 'markdown-pages',
+      },
+    },
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {

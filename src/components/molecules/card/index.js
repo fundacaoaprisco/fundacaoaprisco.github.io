@@ -7,22 +7,22 @@ import { LinkButton } from '@molecules'
 import { StyledCard, ImageWrapper, CardTitle, CardText } from './styled'
 
 const Card = ({ content, ...props }) => {
-  const { image, title, text, href, button } = content
+  const {
+    node: {
+      frontmatter: { path, title },
+    },
+  } = content
 
   return (
     <StyledCard {...props}>
-      <Link to={href}>
-        <ImageWrapper>
-          <img src={image} alt={title} />
-        </ImageWrapper>
+      <Link to={path}>
+        <ImageWrapper>{/* <img src={image} alt={title} /> */}</ImageWrapper>
       </Link>
-      <Link to={href}>
+      <Link to={path}>
         <CardTitle type="h3">{title}</CardTitle>
       </Link>
-      <Link to={href}>
-        <CardText>{text}</CardText>
-      </Link>
-      {button && <LinkButton to={href}>{button}</LinkButton>}
+      <Link to={path}>{/* <CardText>{text}</CardText> */}</Link>
+      {path && <LinkButton to={path}>Leia mais</LinkButton>}
     </StyledCard>
   )
 }

@@ -4,10 +4,6 @@ const navLinks = [
     href: '/projetos',
   },
   {
-    title: 'Blog',
-    href: '/blog',
-  },
-  {
     title: 'Tranparência',
     href: '/transparencia',
   },
