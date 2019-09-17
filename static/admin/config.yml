@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: gatsby
+  branch: dev
 
 media_folder: static/assets
 
