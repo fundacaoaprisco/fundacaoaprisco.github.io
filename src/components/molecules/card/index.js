@@ -4,24 +4,24 @@ import { Link } from 'gatsby'
 
 import { LinkButton } from '@molecules'
 
-import { StyledCard, ImageWrapper, CardTitle, CardText } from './styled'
+import { StyledCard, ImageWrapper, CardTitle } from './styled'
 
 const Card = ({ content, ...props }) => {
   const {
     node: {
-      frontmatter: { path, title },
+      frontmatter: { path, title, image },
     },
   } = content
-
   return (
     <StyledCard {...props}>
       <Link to={path}>
-        <ImageWrapper>{/* <img src={image} alt={title} /> */}</ImageWrapper>
+        <ImageWrapper>
+          <img src={image} alt={title} />
+        </ImageWrapper>
       </Link>
       <Link to={path}>
         <CardTitle type="h3">{title}</CardTitle>
       </Link>
-      <Link to={path}>{/* <CardText>{text}</CardText> */}</Link>
       {path && <LinkButton to={path}>Leia mais</LinkButton>}
     </StyledCard>
   )

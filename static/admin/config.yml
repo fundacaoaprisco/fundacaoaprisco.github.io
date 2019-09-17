@@ -2,7 +2,8 @@ backend:
   name: git-gateway
   branch: dev
 
-media_folder: static/assets
+media_folder: static/images
+public_folder: /images
 
 collections:
   - name: "Blog"
@@ -17,7 +18,6 @@ collections:
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"
-        default: "/uploads"
         media_library:
           config:
             multiple: false
@@ -33,7 +33,6 @@ collections:
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"
-        default: "/uploads"
         media_library:
           config:
             multiple: false
