@@ -6,7 +6,7 @@ media_folder: static/assets
 
 collections:
   - name: "Blog"
-    label: "Blog"
+    label: "Artigos do blog"
     folder: "content/blog"
     create: true
     fields:
@@ -14,3 +14,26 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - label: "Imagem de destaque"
+        name: "image"
+        widget: "image"
+        default: "/uploads"
+        media_library:
+          config:
+            multiple: false
+  - name: "Projects"
+    label: "Projetos"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+      - label: "Imagem de destaque"
+        name: "image"
+        widget: "image"
+        default: "/uploads"
+        media_library:
+          config:
+            multiple: false
