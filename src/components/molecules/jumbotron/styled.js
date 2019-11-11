@@ -18,6 +18,7 @@ export const StyledJumbotron = styled.div`
   align-items: center;
   height: 460px;
   margin-bottom: 3rem;
+  padding: 2rem;
 `
 
 export const JumbotronText = styled(Text)`

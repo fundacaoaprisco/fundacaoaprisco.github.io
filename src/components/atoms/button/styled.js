@@ -12,6 +12,8 @@ export const StyledButton = styled.button`
   cursor: pointer;
   background-color: ${({ white }) => (white ? '#fff' : vars['color-primary'])};
   transition: all 200ms ease;
+  align-items: center;
+  display: flex;
 
   &:hover {
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);

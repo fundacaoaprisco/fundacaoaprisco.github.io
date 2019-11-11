@@ -16,6 +16,11 @@ export const StyledFooterContainer = styled.footer`
   padding: 1rem 2rem 2rem 2rem;
   margin-top: 4rem;
   border-radius: 4px 4px 0 0;
+
+  @media (max-width: 1024px) {
+    padding: 1rem;
+    text-align: center;
+  }
 `
 
 export const StyledSubFooterContainer = styled.div`
@@ -28,6 +33,11 @@ export const StyledSubFooterContainer = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   font-size: 0.875rem;
+
+  @media (max-width: 1024px) {
+    text-align: center;
+    flex-direction: column;
+  }
 `
 
 export const FooterSubTitle = styled(Heading)`
@@ -44,11 +54,20 @@ export const SupportGrid = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 3rem;
+
+  @media (max-width: 1024px) {
+    padding: 1rem 0;
+  }
 `
 
 export const SupportImage = styled.img`
   width: calc(180px - 0.5rem);
   margin: 0.25rem;
+
+  @media (max-width: 1024px) {
+    width: calc(50% - 2rem);
+    margin: 1rem;
+  }
 `
 
 export const FooterMenu = styled.div`
@@ -59,6 +78,11 @@ export const FooterMenu = styled.div`
   & a {
     margin-bottom: 0.5rem;
     display: inline-block;
+  }
+
+  @media (max-width: 1024px) {
+    text-align: center;
+    align-items: center;
   }
 `
 
