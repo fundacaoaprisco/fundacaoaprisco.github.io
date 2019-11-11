@@ -11,8 +11,7 @@ const Jumbotron = () => (
       <br /> propõe a fazer o bem.
     </Heading>
     <JumbotronText white>
-      Promovemos projetos sociais voltados à educação,
-      <br /> cultura, inclusão social e geração de renda.
+      Promovemos projetos sociais voltados à educação, cultura, inclusão social e geração de renda.
     </JumbotronText>
     <Button white>Veja nossos projetos</Button>
   </StyledJumbotron>

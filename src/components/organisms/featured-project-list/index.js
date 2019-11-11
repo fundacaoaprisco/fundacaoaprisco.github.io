@@ -10,7 +10,7 @@ const FeaturedProjectsList = ({ projects }) => (
     <SubtitleBar text="Projetos em destaque" />
     <Grid container spacing={3}>
       {projects.map(project => (
-        <Grid key={`project-list-key-${project.title}`} item xs={12} sm={6} md={3}>
+        <Grid key={`project-list-key-${project.title}`} item xs={12} sm={4} md={4}>
           <Card content={project} />
         </Grid>
       ))}

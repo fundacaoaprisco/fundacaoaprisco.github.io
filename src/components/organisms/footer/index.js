@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { Grid } from '@material-ui/core'
 
 import { Logo, Text } from '@atoms'

@@ -19,6 +19,7 @@ const Index = () => {
             frontmatter {
               title
               path
+              image
             }
           }
         }

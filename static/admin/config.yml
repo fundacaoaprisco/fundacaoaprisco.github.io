@@ -1,12 +1,13 @@
 backend:
   name: git-gateway
-  branch: gatsby
+  branch: dev
 
-media_folder: static/assets
+media_folder: static/images
+public_folder: /images
 
 collections:
   - name: "Blog"
-    label: "Blog"
+    label: "Artigos do blog"
     folder: "content/blog"
     create: true
     fields:
@@ -14,3 +15,24 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
+      - label: "Imagem de destaque"
+        name: "image"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
+  - name: "Projects"
+    label: "Projetos"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: body, label: Body, widget: markdown }
+      - label: "Imagem de destaque"
+        name: "image"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
