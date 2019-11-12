@@ -44,7 +44,15 @@ const ContactForm = () => (
     }}
   >
     {({ errors, touched, setFieldTouched, setFieldValue, handleSubmit }) => (
-      <Form onSubmit={handleSubmit} name="contact" data-netlify-recaptcha="true">
+      <Form
+        onSubmit={handleSubmit}
+        name="contact"
+        method="post"
+        action="/contato"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true"
+      >
         <input type="hidden" name="form-name" value="contact" />
         <Label htmlFor="name">Nome</Label>
         <StyledField
