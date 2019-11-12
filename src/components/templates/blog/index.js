@@ -2,12 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        path
         title
       }
     }
@@ -15,18 +14,21 @@ export const pageQuery = graphql`
 `
 
 const BlogTemplate = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const {
+    markdownRemark: {
+      frontmatter: { title, date },
+      html,
+    },
+  } = data
 
   return (
     <div className="blog-post-container">
       <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
+        <h1>{title}</h1>
+        <h2>{date}</h2>
         <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </div>
   )
 }
-
 export default BlogTemplate
