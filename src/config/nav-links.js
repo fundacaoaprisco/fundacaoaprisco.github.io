@@ -9,7 +9,7 @@ const navLinks = [
   },
   {
     title: 'Contato',
-    href: '/Contato',
+    href: '/contato',
   },
   {
     title: 'Como contribuir',

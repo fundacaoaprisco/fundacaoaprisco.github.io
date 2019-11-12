@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Heading, Text } from '@atoms'
+import { Heading, Text, Tag } from '@atoms'
 
 export const StyledCard = styled.div``
 
@@ -27,5 +27,12 @@ export const ImageWrapper = styled.div`
   border-radius: 4px;
   & img {
     width: 100%;
+    filter: ${({ disabled }) => disabled && `grayscale(1);`};
   }
+`
+
+export const CardTag = styled(Tag)`
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
 `

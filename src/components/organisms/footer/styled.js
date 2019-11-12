@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 import { Facebook } from 'styled-icons/fa-brands'
 
-import { Text, Heading } from '@atoms'
-
-import { LinkButton } from '@molecules'
-
 import bg from '@images/footer-gradient.jpg'
 import line from '@images/sub-footer-line.jpg'
+
+import { Text, Heading } from '@atoms'
+import { LinkButton } from '@molecules'
 
 export const StyledFooterContainer = styled.footer`
   background-color: #fff;
@@ -64,7 +63,7 @@ export const SupportImage = styled.img`
   width: calc(180px - 0.5rem);
   margin: 0.25rem;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 480px) {
     width: calc(50% - 2rem);
     margin: 1rem;
   }

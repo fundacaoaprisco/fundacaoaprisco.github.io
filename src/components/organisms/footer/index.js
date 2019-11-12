@@ -1,10 +1,6 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
 
-import { Logo, Text } from '@atoms'
-
-import { SubtitleBar, LinkButton } from '@molecules'
-
 import navLinks from '@config/nav-links'
 import hipermidiaSrc from '@images/apoio/hipermidia.png'
 
@@ -19,6 +15,9 @@ import {
   FacebookIcon,
   FacebookLink,
 } from './styled'
+
+import { Logo, Text } from '@atoms'
+import { SubtitleBar, LinkButton } from '@molecules'
 
 const Footer = () => (
   <>
@@ -39,7 +38,7 @@ const Footer = () => (
           <FooterSubTitle type="h4">A fundação</FooterSubTitle>
           <FooterMenu>
             {navLinks.map(link => (
-              <LinkButton href="/blog" title={link.title} key={`link-key-${link.href}`}>
+              <LinkButton href={link.href} title={link.title} key={`link-key-${link.href}`}>
                 {link.title}
               </LinkButton>
             ))}
@@ -49,8 +48,8 @@ const Footer = () => (
           <FooterSubTitle type="h4">Fale conosco</FooterSubTitle>
           <FacebookLink
             external
-            to="https://pt-br.facebook.com/fundaprisco"
-            rel="noreferrer nofollow"
+            href="https://pt-br.facebook.com/fundaprisco"
+            rel="noreferrer nofollow noopener"
             target="_blank"
           >
             <FacebookIcon />
