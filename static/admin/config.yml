@@ -11,7 +11,6 @@ collections:
     folder: "content/blog"
     create: true
     fields:
-      - { name: path, label: Path }
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: body, label: Body, widget: markdown }
@@ -26,10 +25,10 @@ collections:
     folder: "content/projects"
     create: true
     fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - { name: date, label: "Data de início", widget: date }
+      - { name: title, label: "Titulo do projeto" }
+      - { name: body, label: "Texto", widget: markdown }
+      - { name: active, label: "Projeto ativo?", widget: "boolean", default: true}
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"

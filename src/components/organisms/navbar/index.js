@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 
-import { Logo } from '@atoms'
-
-import { LinkButton } from '@molecules'
-
 import navLinks from '@config/nav-links'
 
 import { StyledNavbar, NavItems, MobileButtton, CloseButtonWrapper, CloseButton } from './styled'
+
+import { Logo } from '@atoms'
+import { LinkButton } from '@molecules'
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenu] = useState(false)
@@ -49,13 +48,8 @@ const Navbar = () => {
             </svg>
           </CloseButton>
         </CloseButtonWrapper>
-        {navLinks.map((link, i) => (
-          <LinkButton
-            href="/blog"
-            title={link.title}
-            key={`link-key-${link.href}`}
-            isNavLink={i !== navLinks.length - 1}
-          >
+        {navLinks.map(link => (
+          <LinkButton href={link.href} title={link.title} key={`link-key-${link.href}`} isNavLink>
             {link.title}
           </LinkButton>
         ))}

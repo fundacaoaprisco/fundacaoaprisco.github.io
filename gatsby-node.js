@@ -1,6 +1,25 @@
 /* eslint-disable consistent-return */
 const path = require('path')
 
+const slugify = require('slugify')
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const nodeSlug = slugify(node.frontmatter.title, {
+      replacement: '-',
+      remove: /[*+~.()'"!:@]/g,
+      lower: true,
+    })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: nodeSlug,
+    })
+  }
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -16,8 +35,8 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-            frontmatter {
-              path
+            fields {
+              slug
             }
           }
         }
@@ -29,8 +48,8 @@ exports.createPages = ({ actions, graphql }) => {
       ) {
         edges {
           node {
-            frontmatter {
-              path
+            fields {
+              slug
             }
           }
         }
@@ -42,17 +61,21 @@ exports.createPages = ({ actions, graphql }) => {
     }
     result.data.blogs.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: `/blog/${node.fields.slug}`,
         component: BlogTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+          slug: node.fields.slug,
+        }, // additional data can be passed via context
       })
     })
 
     result.data.projects.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: `/projetos/${node.fields.slug}`,
         component: ProjectTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+          slug: node.fields.slug,
+        }, // additional data can be passed via context
       })
     })
   })

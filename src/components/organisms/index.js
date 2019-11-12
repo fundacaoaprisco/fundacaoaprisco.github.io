@@ -1,3 +1,3 @@
 export { default as Navbar } from './navbar'
-export { default as FeaturedProjectsList } from './featured-project-list'
+export { default as CardGrid } from './card-grid'
 export { default as Footer } from './footer'

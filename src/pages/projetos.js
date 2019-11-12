@@ -1,24 +1,25 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Grid } from '@material-ui/core'
 
-import { Jumbotron } from '@molecules'
-import { CardGrid } from '@organisms'
+import { Card, PageTitle } from '@molecules'
 import { frontmatterToCard } from '@utils'
 
 const Index = () => {
   const {
-    allMarkdownRemark: { edges: featuredProjects },
+    allMarkdownRemark: { edges: allProjects },
   } = useStaticQuery(graphql`
     {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { glob: "**/content/projects/*.md" } }
-        limit: 3
+        sort: { fields: frontmatter___active, order: DESC }
       ) {
         edges {
           node {
             frontmatter {
               title
               image
+              active
             }
             fields {
               slug
@@ -30,16 +31,22 @@ const Index = () => {
     }
   `)
 
-  const featuredProjectsContent = frontmatterToCard({
-    array: featuredProjects,
+  const allProjectsContent = frontmatterToCard({
+    array: allProjects,
     beforeHref: 'projetos',
     buttonText: 'Mais informações',
   })
 
   return (
     <>
-      <Jumbotron />
-      <CardGrid cards={featuredProjectsContent} column={3} title="Projetos em destaque" />
+      <PageTitle title="Todos os projetos" />
+      <Grid container spacing={3}>
+        {allProjectsContent.map(project => (
+          <Grid key={`project-list-key-${project.title}`} item xs={12} sm={6} md={4}>
+            <Card content={project} />
+          </Grid>
+        ))}
+      </Grid>
     </>
   )
 }

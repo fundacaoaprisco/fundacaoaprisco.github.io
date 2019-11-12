@@ -14,6 +14,7 @@ module.exports = {
       '@styles': path.resolve(__dirname, 'src', 'styles'),
       '@config': path.resolve(__dirname, 'src', 'config'),
       '@pages': path.resolve(__dirname, 'src', 'pages'),
+      '@utils': path.resolve(__dirname, 'src', 'utils'),
     },
   },
 }
