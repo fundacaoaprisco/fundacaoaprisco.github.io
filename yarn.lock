@@ -6778,10 +6778,10 @@ gatsby-plugin-alias-imports@^1.0.5:
   dependencies:
     "@babel/runtime" "^7.2.0"
 
-gatsby-plugin-layout@^1.0.14:
-  version "1.1.14"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.1.14.tgz#20aa82ac9614f5efae8c020ffb4422b04cbdb866"
-  integrity sha512-zQOQcnETnaljiaGDer8B32B1iqoP5PVd96qmQ9mt07HEUiwLw3DVQMitDkyIQPiTT8RxmyURtG+i6rXGaODWZw==
+gatsby-plugin-layout@^1.1.15:
+  version "1.1.15"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-layout/-/gatsby-plugin-layout-1.1.15.tgz#b0fffccd8bf9d0e6c2963145bf6098ac5e268619"
+  integrity sha512-TEKVut2WopvePKfQVhZGUnywcsoikbQbxBB8VND85QLCCoY/5jzvNrCG7YoZ7XEMvuE/wXF3Fum4tp6vIcUZ0w==
   dependencies:
     "@babel/runtime" "^7.7.2"
 
