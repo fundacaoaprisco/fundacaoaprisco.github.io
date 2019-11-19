@@ -1,8 +1,9 @@
 import React from 'react'
-
-import { Heading, Button } from '@atoms'
+import { navigate } from 'gatsby'
 
 import { StyledJumbotron, JumbotronText } from './styled'
+
+import { Heading, Button } from '@atoms'
 
 const Jumbotron = () => (
   <StyledJumbotron>
@@ -13,7 +14,9 @@ const Jumbotron = () => (
     <JumbotronText white>
       Promovemos projetos sociais voltados à educação, cultura, inclusão social e geração de renda.
     </JumbotronText>
-    <Button white>Veja nossos projetos</Button>
+    <Button white onClick={() => navigate('/projetos', { replace: true })}>
+      Veja nossos projetos
+    </Button>
   </StyledJumbotron>
 )
 

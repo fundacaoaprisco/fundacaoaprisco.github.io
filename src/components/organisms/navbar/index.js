@@ -49,7 +49,13 @@ const Navbar = () => {
           </CloseButton>
         </CloseButtonWrapper>
         {navLinks.map(link => (
-          <LinkButton href={link.href} title={link.title} key={`link-key-${link.href}`} isNavLink>
+          <LinkButton
+            href={link.href}
+            title={link.title}
+            activeClassName="active"
+            key={`link-key-${link.href}`}
+            isNavLink
+          >
             {link.title}
           </LinkButton>
         ))}

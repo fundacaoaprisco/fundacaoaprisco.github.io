@@ -13,13 +13,9 @@ const Card = ({ content, ...props }) => {
       <Link to={href}>
         <ImageWrapper disabled={active === false}>
           <img src={image} alt={title} />
-          {active !== null ||
-            (typeof active !== 'undefined' && (
-              <CardTag
-                type={active ? 'primary' : 'secondary'}
-                text={active ? 'Ativo' : 'Inátivo'}
-              />
-            ))}
+          {active !== null && typeof active !== 'undefined' && (
+            <CardTag type={active ? 'primary' : 'secondary'} text={active ? 'Ativo' : 'Inátivo'} />
+          )}
         </ImageWrapper>
       </Link>
       <Link to={href}>
@@ -27,7 +23,7 @@ const Card = ({ content, ...props }) => {
       </Link>
       {text && (
         <Link to={href}>
-          <CardText>{title}</CardText>
+          <CardText>{text}</CardText>
         </Link>
       )}
       {href && <LinkButton href={href}>{button}</LinkButton>}
