@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-import { Button } from '@atoms'
-
 import vars from '@styles/variables'
+
+import { Button } from '@atoms'
 
 export const StyledNavbar = styled.div`
   display: flex;
@@ -17,6 +17,11 @@ export const StyledNavbar = styled.div`
 export const NavItems = styled.div`
   & a {
     margin-left: 24px;
+
+    &.active {
+      color: ${vars['color-primary']};
+      box-shadow: 0px 2px 0px 0px ${vars['color-primary']};
+    }
   }
 
   @media (max-width: 1024px) {

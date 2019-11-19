@@ -44,7 +44,7 @@ module.exports = {
           {
             family: `IBM Plex Serif`,
             subsets: [`latin`],
-            variants: [`300`, `400`],
+            variants: [`300`, `400`, `300i`],
           },
           {
             family: `Overpass`,

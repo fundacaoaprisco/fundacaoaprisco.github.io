@@ -4,6 +4,10 @@ const navLinks = [
     href: '/projetos',
   },
   {
+    title: 'Blog',
+    href: '/blog',
+  },
+  {
     title: 'Tranparência',
     href: '/transparencia',
   },
@@ -13,7 +17,7 @@ const navLinks = [
   },
   {
     title: 'Como contribuir',
-    href: '/contribua',
+    href: '/como-contribuir',
   },
 ]
 

@@ -16,3 +16,16 @@ export const StyledSubTitle = styled(StyledText)`
   line-height: 1.5rem;
   font-weight: 300;
 `
+
+export const Quote = styled.p`
+  font-family: ${vars['font-title']};
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: ${vars['color-text']};
+  margin: 0;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  font-style: italic;
+  margin: 4rem;
+`

@@ -64,6 +64,7 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
 `
 
 export default GlobalStyles
