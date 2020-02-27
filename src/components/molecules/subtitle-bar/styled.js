@@ -4,5 +4,6 @@ export const StyledSubTitleBar = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  justify-content: space-between;
 `
