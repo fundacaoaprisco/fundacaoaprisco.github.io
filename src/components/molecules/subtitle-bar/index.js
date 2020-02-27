@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Text } from '@atoms'
-
 import { StyledSubTitleBar } from './styled'
+
+import { Text } from '@atoms'
 
 const SubtitleBar = ({ text, button }) => (
   <StyledSubTitleBar>

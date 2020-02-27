@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import { Grid } from '@material-ui/core'
 
 import { Card, SubtitleBar } from '@molecules'
 
-import { Grid } from '@material-ui/core'
-
-const CardGrid = ({ cards, title, columns }) => {
+const CardGrid = ({ cards, title, button, columns }) => {
   const gridProps =
     columns === 3
       ? {
@@ -20,7 +19,7 @@ const CardGrid = ({ cards, title, columns }) => {
         }
   return (
     <Fragment>
-      <SubtitleBar text={title} />
+      <SubtitleBar text={title} button={button} />
       <Grid container spacing={3}>
         {cards.map(project => (
           <Grid key={`project-list-key-${project.title}`} item {...gridProps}>
@@ -34,6 +33,7 @@ const CardGrid = ({ cards, title, columns }) => {
 
 CardGrid.propTypes = {
   title: PropTypes.string.isRequired,
+  button: PropTypes.node,
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
@@ -48,6 +48,7 @@ CardGrid.propTypes = {
 
 CardGrid.defaultProps = {
   columns: 3,
+  button: undefined,
 }
 
 export default CardGrid
