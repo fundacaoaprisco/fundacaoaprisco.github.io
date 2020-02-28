@@ -1,4 +1,5 @@
 const resolvers = require('./gatsby.resolve')
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {

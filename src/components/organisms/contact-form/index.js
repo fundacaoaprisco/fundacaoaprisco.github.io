@@ -1,12 +1,9 @@
-import React from 'react'
-import { navigate } from 'gatsby'
+import React, { useState } from 'react'
 import { Formik } from 'formik'
 import Recaptcha from 'react-google-recaptcha'
 import * as yup from 'yup'
 
-import { Label, StyledField, Form, ErrorText, SubmitButton } from './styled'
-
-const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
+import { Label, StyledField, Form, ErrorText, SplitCol, SuccessText, SubmitButton } from './styled'
 
 const formValidation = yup.object().shape({
   name: yup.string().required('Seu nome não pode ficar em branco'),
@@ -30,14 +27,17 @@ const encode = data =>
 
 const ContactForm = () => {
   const recaptchaRef = React.createRef()
+  const [success, setSuccess] = useState(false)
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={formValidation}
       onSubmit={(values, actions) => {
-        const { setSubmitting, resetForm } = actions
+        const { setSubmitting, resetForm, setFieldValue } = actions
         const recaptchaValue = recaptchaRef.current.getValue()
-
+        setSuccess(false)
+        console.log('la', setFieldValue)
         fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -48,15 +48,29 @@ const ContactForm = () => {
           }),
         })
           .then(() => {
-            console.log('XABALAU!')
+            console.log(values)
+            console.log('ca')
+
+            setSuccess(true)
             setSubmitting(false)
+            setFieldValue('message', '')
             resetForm()
-            navigate('/thanks/')
           })
-          .catch(error => alert(error))
+          .catch(error => {
+            alert(error.message)
+            console.log('ué')
+          })
       }}
     >
-      {({ errors, touched, setFieldTouched, setFieldValue, handleSubmit }) => (
+      {({
+        errors,
+        values,
+        touched,
+        setFieldTouched,
+        setFieldValue,
+        isSubmitting,
+        handleSubmit,
+      }) => (
         <Form
           onSubmit={handleSubmit}
           name="contact"
@@ -64,6 +78,7 @@ const ContactForm = () => {
           action="/thanks/"
           data-netlify="true"
           data-netlify-recaptcha="true"
+          enableReinitialize
         >
           <input type="hidden" name="form-name" value="contact" />
           <Label htmlFor="name">Nome</Label>
@@ -88,6 +103,7 @@ const ContactForm = () => {
           <StyledField
             as="textarea"
             name="message"
+            value={values.message}
             className="form-input"
             placeholder="Digite sua mensagem aqui"
             onChange={e => setFieldValue('message', e.target.value)}
@@ -97,8 +113,21 @@ const ContactForm = () => {
             error={!!(errors.message && touched.message)}
           />
           {errors.message && touched.message && <ErrorText>{errors.message}</ErrorText>}
-          <Recaptcha ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
-          <SubmitButton type="submit">Enviar mensagem</SubmitButton>
+
+          <Recaptcha
+            style={{ marginTop: 24 }}
+            ref={recaptchaRef}
+            sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+          />
+
+          <SplitCol>
+            <div>
+              <SubmitButton type="submit" white={isSubmitting}>
+                {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
+              </SubmitButton>
+            </div>
+            <div>{success && <SuccessText>Sua mensagem foi enviada com sucesso!</SuccessText>}</div>
+          </SplitCol>
         </Form>
       )}
     </Formik>
