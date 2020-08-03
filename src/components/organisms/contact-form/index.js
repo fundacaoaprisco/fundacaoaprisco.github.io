@@ -38,10 +38,12 @@ const ContactForm = () => {
         const { setSubmitting, resetForm, setFieldValue } = actions
         const recaptchaValue = recaptchaRef.current.getValue()
         setSuccess(false)
-        console.log('recaptchaValue', recaptchaValue)
 
         if (!recaptchaValue) {
-          return setError({ status: true, text: 'Um erro inesperado aconteceu. Tente novamente.' })
+          return setError({
+            status: true,
+            text: 'Por favor resolva o reCAPTCHA acima antes de enviar.',
+          })
         }
 
         return fetch('/', {
