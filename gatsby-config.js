@@ -3,7 +3,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Title from siteMetadata`,
+    title: `Fundação Aprisco`,
   },
   plugins: [
     {
@@ -62,5 +62,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Fundação Aprisco`,
+        short_name: `Fundação Aprisco`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `##0d9999`,
+        display: `standalone`,
+        icon: 'src/images/fundacao-aprisco-logo.png',
+      },
+    },
   ],
 }
