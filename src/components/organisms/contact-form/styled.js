@@ -46,6 +46,27 @@ export const ErrorText = styled.p`
   color: ${vars['color-danger']};
 `
 
+export const SuccessText = styled.p`
+  font-size: 1rem;
+  color: ${vars['color-green']};
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+
+  @media (max-width: 1024px) {
+    margin-left: 0;
+  }
+`
+
 export const SubmitButton = styled(Button)`
   margin-top: 1.5rem;
+`
+
+export const SplitCol = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
