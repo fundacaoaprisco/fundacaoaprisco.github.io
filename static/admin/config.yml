@@ -40,12 +40,9 @@ collections:
     folder: "content/apoio"
     create: true
     fields:
-      - { name: date, label: "Data de início", widget: date }
-      - { name: title, label: "Titulo do projeto" }
-      - { name: body, label: "Texto", widget: markdown }
-      - { name: active, label: "Projeto ativo?", widget: "boolean", default: true}
-      - label: "Imagem de destaque"
-        name: "image"
+      - { name: name, label: "Nome do apoiador" }
+      - label: "Marca do apoiador"
+        name: "brand"
         widget: "image"
         media_library:
           config:
