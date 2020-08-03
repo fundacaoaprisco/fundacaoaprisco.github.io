@@ -28,6 +28,7 @@ const encode = data =>
 const ContactForm = () => {
   const recaptchaRef = React.createRef()
   const [success, setSuccess] = useState(false)
+  const [error, setError] = useState({ status: false, text: '' })
 
   return (
     <Formik
@@ -37,8 +38,12 @@ const ContactForm = () => {
         const { setSubmitting, resetForm, setFieldValue } = actions
         const recaptchaValue = recaptchaRef.current.getValue()
         setSuccess(false)
-        console.log('la', setFieldValue)
-        fetch('/', {
+
+        if (!recaptchaValue) {
+          return setError({ status: true, text: 'Um erro inesperado aconteceu. Tente novamente.' })
+        }
+
+        return fetch('/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: encode({
@@ -48,17 +53,14 @@ const ContactForm = () => {
           }),
         })
           .then(() => {
-            console.log(values)
-            console.log('ca')
-
             setSuccess(true)
             setSubmitting(false)
             setFieldValue('message', '')
             resetForm()
           })
-          .catch(error => {
-            alert(error.message)
-            console.log('ué')
+          .catch(e => {
+            console.error(e.message)
+            setError({ status: true, text: 'Um erro inesperado aconteceu. Tente novamente.' })
           })
       }}
     >
@@ -118,15 +120,21 @@ const ContactForm = () => {
             style={{ marginTop: 24 }}
             ref={recaptchaRef}
             sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+            hl="pt-BR"
           />
 
           <SplitCol>
             <div>
-              <SubmitButton type="submit" white={isSubmitting}>
+              <SubmitButton
+                type="submit"
+                white={isSubmitting}
+                disabled={isSubmitting || !recaptchaRef.current.getValue()}
+              >
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
               </SubmitButton>
             </div>
             <div>{success && <SuccessText>Sua mensagem foi enviada com sucesso!</SuccessText>}</div>
+            <div>{error.status && <ErrorText>{error.text}</ErrorText>}</div>
           </SplitCol>
         </Form>
       )}

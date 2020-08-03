@@ -52,6 +52,7 @@ const Navbar = () => {
           <LinkButton
             href={link.href}
             title={link.title}
+            onClick={() => setMobileMenu(false)}
             activeClassName="active"
             key={`link-key-${link.href}`}
             isNavLink

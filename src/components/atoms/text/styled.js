@@ -8,7 +8,7 @@ export const StyledText = styled.p`
   line-height: 1.25rem;
   color: ${({ white }) => (white ? '#fff' : vars['color-text'])};
   margin: 0;
-  font-weight: 300;
+  font-weight: ${({ bold }) => (bold ? 700 : 300)};
 `
 
 export const StyledSubTitle = styled(StyledText)`

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { StyledText, StyledSubTitle, Quote } from './styled'
 
-const Text = ({ children, white, subtitle, quote, className }) =>
+const Text = ({ children, white, subtitle, quote, className, bold }) =>
   // eslint-disable-next-line no-nested-ternary
   subtitle ? (
     <StyledSubTitle className={className} white={white} subtitle={subtitle}>
@@ -14,7 +14,7 @@ const Text = ({ children, white, subtitle, quote, className }) =>
       {children}
     </Quote>
   ) : (
-    <StyledText className={className} white={white} subtitle={subtitle}>
+    <StyledText className={className} white={white} subtitle={subtitle} bold={bold}>
       {children}
     </StyledText>
   )
