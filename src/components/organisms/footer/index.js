@@ -1,8 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Grid } from '@material-ui/core'
 
 import navLinks from '@config/nav-links'
-import hipermidiaSrc from '@images/apoio/hipermidia.png'
 
 import {
   StyledFooterContainer,
@@ -19,16 +19,18 @@ import {
 import { Logo, Text } from '@atoms'
 import { SubtitleBar, LinkButton } from '@molecules'
 
-const Footer = () => (
+const Footer = ({ brands, metadata }) => (
   <>
     <StyledFooterContainer>
       <SubtitleBar text="Apoio" />
       <SupportGrid>
-        <SupportImage src={hipermidiaSrc} alt="HIPERMÍDIA" />
-        <SupportImage src={hipermidiaSrc} alt="HIPERMÍDIA" />
-        <SupportImage src={hipermidiaSrc} alt="HIPERMÍDIA" />
-        <SupportImage src={hipermidiaSrc} alt="HIPERMÍDIA" />
-        <SupportImage src={hipermidiaSrc} alt="HIPERMÍDIA" />
+        {brands.map(({ node }) => (
+          <SupportImage
+            key={`apoio-brand-${node.id}`}
+            src={node.frontmatter.brand}
+            alt={node.frontmatter.title}
+          />
+        ))}
       </SupportGrid>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={4} md={2}>
@@ -46,6 +48,7 @@ const Footer = () => (
         </Grid>
         <Grid item xs={12} sm={4} md={3}>
           <FooterSubTitle type="h4">Fale conosco</FooterSubTitle>
+
           <FacebookLink
             external
             href="https://pt-br.facebook.com/fundaprisco"
@@ -55,27 +58,36 @@ const Footer = () => (
             <FacebookIcon />
             Facebook
           </FacebookLink>
-          <Text>2883 Avenida Gov. João Durval Carneiro, 44051634 Feira de Santana</Text>
+
+          <Text>{metadata.tel}</Text>
+          <Text>{metadata.email}</Text>
+          <br />
+          <Text>{metadata.andress}</Text>
         </Grid>
         <Grid item xs={12} md={5}>
           <FooterSubTitle type="h4">Nossa missão</FooterSubTitle>
-          <Text>
-            Além de fazer assistência social, reunir recursos humanos e financeiros para o
-            planejamento, execução e gestão de projetos sociais voltados à educação, cultura, lazer,
-            desenvolvimento profissional, inclusão social e geração de renda
-          </Text>
+          <Text>{metadata.mission}</Text>
         </Grid>
       </Grid>
     </StyledFooterContainer>
     <StyledSubFooterContainer>
-      <SubFooterText>Fundação Aprisco • ONG em Feira de Sananta</SubFooterText>
+      <SubFooterText>Fundação Aprisco • {metadata.subtitle}</SubFooterText>
       <SubFooterText>CNPJ: 04.027.896/0001-53</SubFooterText>
     </StyledSubFooterContainer>
   </>
 )
 
-Footer.propTypes = {}
-
-Footer.defaultProps = {}
+Footer.propTypes = {
+  brands: PropTypes.instanceOf(Array).isRequired,
+  metadata: PropTypes.shape({
+    subtitle: PropTypes.string.isRequired,
+    mission: PropTypes.string.isRequired,
+    andress: PropTypes.string.isRequired,
+    tel: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    heroTitle: PropTypes.string.isRequired,
+    heroText: PropTypes.string.isRequired,
+  }).isRequired,
+}
 
 export default Footer

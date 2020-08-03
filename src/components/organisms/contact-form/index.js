@@ -125,11 +125,7 @@ const ContactForm = () => {
 
           <SplitCol>
             <div>
-              <SubmitButton
-                type="submit"
-                white={isSubmitting}
-                disabled={isSubmitting || !recaptchaRef.current.getValue()}
-              >
+              <SubmitButton type="submit" white={isSubmitting} disabled={isSubmitting}>
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
               </SubmitButton>
             </div>

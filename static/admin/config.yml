@@ -11,9 +11,9 @@ collections:
     folder: "content/blog"
     create: true
     fields:
-      - { name: date, label: Date, widget: date }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+      - { name: date, label: "Data de postagem", widget: date }
+      - { name: title, label: "Título do artigo" }
+      - { name: body, label: "Conteúdo", widget: markdown }
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"
@@ -40,10 +40,30 @@ collections:
     folder: "content/apoio"
     create: true
     fields:
-      - { name: name, label: "Nome do apoiador" }
+      - { name: title, label: "Nome do apoiador" }
       - label: "Marca do apoiador"
         name: "brand"
         widget: "image"
         media_library:
           config:
             multiple: false
+  - name: "Páginas"
+    label: "Páginas"
+    folder: "content/paginas"
+    create: true
+    fields:
+      - { name: title, label: "Título da página" }
+      - { name: body, label: "Conteúdo", widget: markdown }
+  - name: "Informações do site"
+    label: "Informações do site"
+    folder: "content/sitemetadata"
+    create: false
+    fields:
+      - { name: title, label: Title }
+      - { name: subtitle, label: "Sub-título do site" }
+      - { name: mission, label: "Texto de missão" }
+      - { name: andress, label: "Endereço" }
+      - { name: tel, label: "Telefone de contato" }
+      - { name: email, label: "E-mail de contato" }
+      - { name: heroTitle, label: "Titulo em destaque" }
+      - { name: heroText, label: "Texto em destaque" }

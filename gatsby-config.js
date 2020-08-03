@@ -61,5 +61,6 @@ module.exports = {
         component: require.resolve(`./src/components/templates/base`),
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 }
