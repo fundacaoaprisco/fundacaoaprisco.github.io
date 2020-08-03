@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Grid } from '@material-ui/core'
+import { Helmet } from 'react-helmet'
 
 import { Card, PageTitle } from '@molecules'
 import { frontmatterToCard } from '@utils'
@@ -38,6 +39,14 @@ const Index = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Blog • Fundação Aprisco</title>
+        <meta
+          name="description"
+          content="Publicamos no nosso blog sobre as novidades da Fundação Aprisco."
+        />
+      </Helmet>
+
       <PageTitle title="Blog" />
       <Grid container spacing={3}>
         {allPostsContent.map(project => (

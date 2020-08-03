@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 
 import { Jumbotron, LinkButton } from '@molecules'
 import { CardGrid, ContributeBar } from '@organisms'
@@ -44,6 +45,15 @@ const Index = () => {
           }
         }
       }
+      SiteMetadata: markdownRemark(fileAbsolutePath: { glob: "**/content/sitemetadata/*.md" }) {
+        id
+        frontmatter {
+          subtitle
+          heroTitle
+          heroText
+          mission
+        }
+      }
     }
   `)
 
@@ -64,7 +74,15 @@ const Index = () => {
 
   return (
     <>
-      <Jumbotron />
+      <Helmet>
+        <title>Fundação Aprisco • {data.SiteMetadata.frontmatter.subtitle}</title>
+        <meta name="description" content={data.SiteMetadata.frontmatter.mission} />
+      </Helmet>
+
+      <Jumbotron
+        title={data.SiteMetadata.frontmatter.heroTitle}
+        text={data.SiteMetadata.frontmatter.heroText}
+      />
 
       <CardGrid
         cards={featuredProjectsContent}
@@ -72,6 +90,7 @@ const Index = () => {
         title="Projetos em destaque"
         button={projectsButton}
       />
+
       <ContributeBar />
 
       <CardGrid

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Grid } from '@material-ui/core'
+import { Helmet } from 'react-helmet'
 
 import { DocumentCard, PageTitle } from '@molecules'
 import { docsToCard } from '@utils'
@@ -28,6 +29,11 @@ const Transparency = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Transparência • Fundação Aprisco</title>
+        <meta name="description" content="Todos os nossas informações abertas para o público." />
+      </Helmet>
+
       <PageTitle title="Somos transparentes" />
       <Grid container spacing={3}>
         {allDocsTransformed.map(doc => (
