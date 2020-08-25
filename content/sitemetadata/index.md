@@ -6,8 +6,8 @@ mission: >-
   planejamento, execução e gestão de projetos sociais voltados à educação,
   cultura, lazer, desenvolvimento profissional, inclusão social e geração de
   renda
-andress: '2883 Avenida Gov. João Durval Carneiro, 44051634 Feira de Santana'
-tel: (00) 0000-0000
+andress: 'Rua João Martins da Silva, 526, 1°andar, bairro São João, Feira de Santana'
+tel: (75) 32264433
 email: contato@fundacaoaprisco.org
 heroTitle: Comunidade que se propõe a fazer o bem.
 heroText: >-
