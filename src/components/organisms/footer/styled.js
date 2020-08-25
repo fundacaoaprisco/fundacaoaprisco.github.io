@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Facebook } from 'styled-icons/fa-brands'
+import { Facebook, Instagram } from 'styled-icons/fa-brands'
 
 import bg from '@images/footer-gradient.jpg'
 import line from '@images/sub-footer-line.jpg'
@@ -91,6 +91,13 @@ export const FacebookLink = styled(LinkButton)`
 `
 
 export const FacebookIcon = styled(Facebook)`
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.4rem;
+`
+
+export const InstagramIcon = styled(Instagram)`
   width: 1rem;
   height: 1rem;
   display: inline-block;

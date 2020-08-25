@@ -8,7 +8,7 @@ const navLinks = [
     href: '/blog',
   },
   {
-    title: 'Tranparência',
+    title: 'Transparência',
     href: '/transparencia',
   },
   {

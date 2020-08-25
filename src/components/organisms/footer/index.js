@@ -13,6 +13,7 @@ import {
   FooterSubTitle,
   FooterMenu,
   FacebookIcon,
+  InstagramIcon,
   FacebookLink,
 } from './styled'
 
@@ -57,6 +58,16 @@ const Footer = ({ brands, metadata }) => (
           >
             <FacebookIcon />
             Facebook
+          </FacebookLink>
+
+          <FacebookLink
+            external
+            href="https://www.instagram.com/fundacaoaprisco"
+            rel="noreferrer nofollow noopener"
+            target="_blank"
+          >
+            <InstagramIcon />
+            Instagram
           </FacebookLink>
 
           <Text>{metadata.tel}</Text>

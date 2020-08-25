@@ -20,7 +20,7 @@ collections:
       - { name: date, label: "Data de início", widget: date, dateFormat: 'DD/MM/YYYY'  }
       - { name: title, label: "Titulo do projeto" }
       - { name: body, label: "Texto", widget: markdown }
-      - { name: active, label: "Projeto ativo?", widget: "boolean", default: true}
+      - { name: active, label: "Projeto ativo?", widget: "boolean", default: true }
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"
@@ -28,14 +28,14 @@ collections:
           config:
             multiple: false
   - name: "Blog"
-    label: "Artigos do blog"
+    label: "Publicações"
     folder: "content/blog"
     create: true
     fields:
       - { name: date, label: "Data de postagem", widget: date, dateFormat: 'DD/MM/YYYY' }
       - { name: title, label: "Título do artigo" }
-      - { name: featured, label: "Artigo em destaque?", widget: "boolean", default: false, required: false }
-      - { name: isPublic, label: "Artigo público?", widget: "boolean", default: false, required: false }
+      - { name: featured, label: "Publicação em destaque?", widget: "boolean", default: false, required: false }
+      - { name: isPublic, label: "Tornar público?", widget: "boolean", default: false, required: false }
       - label: "Categorias"
         name: postCategories
         collection: "categories"
@@ -44,7 +44,8 @@ collections:
         displayFields: ["title"]
         widget: "relation"
         multiple: true
-      - label: "Projeto relacionado"
+        required: false
+      - label: "Projeto(s) relacionado(s)"
         name: postProjects
         collection: "Projects"
         valueField: "title"
@@ -52,6 +53,7 @@ collections:
         displayFields: ["title"]
         widget: "relation"
         multiple: true
+        required: false
       - label: "Imagem de destaque"
         name: "image"
         widget: "image"
