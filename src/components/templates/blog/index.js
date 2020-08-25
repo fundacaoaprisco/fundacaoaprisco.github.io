@@ -70,4 +70,5 @@ const BlogTemplate = ({ data }) => {
     </PostContainer>
   )
 }
+
 export default BlogTemplate
