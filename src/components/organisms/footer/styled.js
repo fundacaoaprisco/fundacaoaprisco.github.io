@@ -62,6 +62,8 @@ export const SupportGrid = styled.div`
 export const SupportImage = styled.img`
   width: calc(180px - 0.5rem);
   margin: 0.25rem;
+  max-height: 150px;
+  object-fit: contain;
 
   @media (max-width: 480px) {
     width: calc(50% - 2rem);

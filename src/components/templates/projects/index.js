@@ -47,15 +47,14 @@ const BlogTemplate = ({ data }) => {
       <HeaderArticle>
         <PostHeaderInfo>
           <PostDate>{getDate()}</PostDate>
-          <br />
 
           {active !== null && typeof active !== 'undefined' && active !== false && (
-            <>
+            <div style={{ marginLeft: 16, display: 'flex' }}>
               <PostDate>Status do projeto:</PostDate>
               <div>
                 <Tag type={active ? 'primary' : 'secondary'} text={active ? 'Ativo' : 'Inátivo'} />
               </div>
-            </>
+            </div>
           )}
         </PostHeaderInfo>
         <PostTitle type="h1">{title}</PostTitle>

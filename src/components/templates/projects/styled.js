@@ -93,6 +93,7 @@ export const PostDate = styled.p`
 export const PostImage = styled.img`
   margin: 0;
   width: 100%;
+  border-radius: 8px;
 `
 
 export const PostHeaderInfo = styled.div`

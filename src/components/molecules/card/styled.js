@@ -26,6 +26,8 @@ export const ImageWrapper = styled.div`
   border-radius: 4px;
   & img {
     width: 100%;
+    max-height: 216px;
+    object-fit: cover;
     filter: ${({ disabled }) => disabled && `grayscale(1);`};
   }
 `
