@@ -4,6 +4,7 @@ title: artigo com categoria
 isPublic: true
 postCategories:
   - Nova categoria
+  - Categoria teste
 image: /images/infocentro.png
 ---
 asdasdasdasdasd
