@@ -7,7 +7,7 @@ mission: >-
   cultura, lazer, desenvolvimento profissional, inclusão social e geração de
   renda
 andress: 'Rua João Martins da Silva, 526, 1°andar, bairro São João, Feira de Santana'
-tel: (75) 32264433
+tel: (75) 3226-4433
 email: contato@fundacaoaprisco.org
 heroTitle: Comunidade que se propõe a fazer o bem.
 heroText: >-
