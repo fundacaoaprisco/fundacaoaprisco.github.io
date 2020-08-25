@@ -15,6 +15,8 @@ export const StyledNavbar = styled.div`
 `
 
 export const NavItems = styled.div`
+  z-index: 999;
+
   & a {
     margin-left: 24px;
 
@@ -34,7 +36,6 @@ export const NavItems = styled.div`
     height: 100%;
     background: #ffffff;
     box-shadow: -4px 3px 10px rgba(0, 0, 0, 0.1);
-    z-index: 999;
     transition: transform 200ms ease;
     transform: ${({ open }) => (open ? `translateX(0)` : `translateX(110%)`)};
 
@@ -72,4 +73,14 @@ export const CloseButton = styled(Button)`
   @media (max-width: 1024px) {
     display: block;
   }
+`
+
+export const MenuBackDrop = styled.div`
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
 `

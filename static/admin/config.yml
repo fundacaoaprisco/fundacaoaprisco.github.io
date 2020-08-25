@@ -6,22 +6,12 @@ media_folder: static/images
 public_folder: /images
 
 collections:
-  - name: "Blog"
-    label: "Artigos do blog"
-    folder: "content/blog"
+  - name: "categories"
+    label: "Categorias"
+    folder: "content/categories"
     create: true
     fields:
-      - { name: date, label: "Data de postagem", widget: date, dateFormat: 'DD/MM/YYYY' }
-      - { name: title, label: "Título do artigo" }
-      - { name: featured, label: "Artigo em destaque?", widget: "boolean", required: false }
-      - { name: isPublic, label: "Artigo público?", widget: "boolean", required: false }
-      - { name: body, label: "Conteúdo", widget: markdown }
-      - label: "Imagem de destaque"
-        name: "image"
-        widget: "image"
-        media_library:
-          config:
-            multiple: false
+      - { name: title, label: Nome }
   - name: "Projects"
     label: "Projetos"
     folder: "content/projects"
@@ -37,6 +27,39 @@ collections:
         media_library:
           config:
             multiple: false
+  - name: "Blog"
+    label: "Artigos do blog"
+    folder: "content/blog"
+    create: true
+    fields:
+      - { name: date, label: "Data de postagem", widget: date, dateFormat: 'DD/MM/YYYY' }
+      - { name: title, label: "Título do artigo" }
+      - { name: featured, label: "Artigo em destaque?", widget: "boolean", default: false, required: false }
+      - { name: isPublic, label: "Artigo público?", widget: "boolean", default: false, required: false }
+      - label: "Categorias"
+        name: postCategories
+        collection: "categories"
+        valueField: "title"
+        searchFields: ["title"]
+        displayFields: ["title"]
+        widget: "relation"
+        multiple: true
+      - label: "Projeto relacionado"
+        name: postProjects
+        collection: "Projects"
+        valueField: "title"
+        searchFields: ["title"]
+        displayFields: ["title"]
+        widget: "relation"
+        multiple: true
+      - label: "Imagem de destaque"
+        name: "image"
+        widget: "image"
+        media_library:
+          config:
+            multiple: false
+      - { name: body, label: "Conteúdo", widget: markdown }
+
   - name: "Apoio"
     label: "Apoio"
     folder: "content/apoio"

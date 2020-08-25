@@ -9,6 +9,7 @@ import {
   PostDate,
   PostImage,
   PostHeaderInfo,
+  CategoryList,
 } from './styled'
 
 import { Tag } from '@atoms'
@@ -22,6 +23,7 @@ export const pageQuery = graphql`
         title
         image
         active
+        postCategories
       }
     }
   }
@@ -30,7 +32,7 @@ export const pageQuery = graphql`
 const BlogTemplate = ({ data }) => {
   const {
     markdownRemark: {
-      frontmatter: { title, image, date, active },
+      frontmatter: { title, image, date, postCategories },
       html,
     },
   } = data
@@ -48,6 +50,14 @@ const BlogTemplate = ({ data }) => {
         <PostHeaderInfo>
           <PostDate>{getDate()}</PostDate>
         </PostHeaderInfo>
+        {postCategories.length && (
+          <CategoryList>
+            {console.log(postCategories)}
+            {postCategories.map(name => (
+              <Tag text={name} type="secondary" />
+            ))}
+          </CategoryList>
+        )}
         <PostTitle type="h1">{title}</PostTitle>
       </HeaderArticle>
 

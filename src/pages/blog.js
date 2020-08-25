@@ -12,7 +12,10 @@ const Index = () => {
   } = useStaticQuery(graphql`
     {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+        filter: {
+          fileAbsolutePath: { glob: "**/content/blog/*.md" }
+          frontmatter: { isPublic: { eq: true } }
+        }
         sort: { fields: frontmatter___active, order: DESC }
       ) {
         edges {

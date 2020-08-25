@@ -65,6 +65,24 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  button.slick-arrow:before {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .slick-home-slider {
+    margin-bottom: 4rem;
+  }
+
+  @media (max-width: 1024px) {
+    button.slick-arrow {
+      display: none !important; 
+    }
+    
+    .clickoutside {
+      width: 0;
+      position: absolute;
+    }
+  }
 `
 
 export default GlobalStyles

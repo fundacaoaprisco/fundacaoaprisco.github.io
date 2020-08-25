@@ -13,6 +13,10 @@ export const StyledH1 = styled(heading)`
   font-size: 3rem;
   line-height: 3rem;
   font-weight: 300;
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
 `
 
 export const StyledH2 = styled(heading)`

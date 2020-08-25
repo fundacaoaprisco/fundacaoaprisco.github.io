@@ -128,3 +128,11 @@ export const HeaderArticle = styled.header`
     display: block;
   }
 `
+export const CategoryList = styled.div`
+  display: flex;
+  margin-top: 1rem;
+
+  & div {
+    margin: 0 0.5rem;
+  }
+`

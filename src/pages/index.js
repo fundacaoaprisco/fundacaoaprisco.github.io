@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import Carousel, { Dots } from '@brainhubeu/react-carousel'
-import '@brainhubeu/react-carousel/lib/style.css'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import { Jumbotron, LinkButton } from '@molecules'
 import { CardGrid, ContributeBar } from '@organisms'
 import { frontmatterToCard } from '@utils'
 
 const Index = () => {
-  const [slide, setSlideIndex] = useState(0)
-
   const data = useStaticQuery(graphql`
     {
       blogs: allMarkdownRemark(
-        filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+        filter: {
+          fileAbsolutePath: { glob: "**/content/blog/*.md" }
+          frontmatter: { isPublic: { eq: true } }
+        }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 4
       ) {
@@ -52,7 +54,10 @@ const Index = () => {
         }
       }
       featuredPosts: allMarkdownRemark(
-        filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+        filter: {
+          fileAbsolutePath: { glob: "**/content/blog/*.md" }
+          frontmatter: { featured: { eq: true }, isPublic: { eq: true } }
+        }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 5
       ) {
@@ -105,21 +110,26 @@ const Index = () => {
         <meta name="description" content={data.SiteMetadata.frontmatter.mission} />
       </Helmet>
 
-      <Carousel value={slide} onChange={setSlideIndex} plugins={['infinite', 'fastSwipe']}>
-        <Jumbotron
-          title={data.SiteMetadata.frontmatter.heroTitle}
-          text={data.SiteMetadata.frontmatter.heroText}
-        />
-        <Jumbotron
-          title={data.SiteMetadata.frontmatter.heroTitle}
-          text={data.SiteMetadata.frontmatter.heroText}
-        />
-        <Jumbotron
-          title={data.SiteMetadata.frontmatter.heroTitle}
-          text={data.SiteMetadata.frontmatter.heroText}
-        />
-      </Carousel>
-      <Dots value={slide} onChange={setSlideIndex} />
+      <Slider
+        className="slick-home-slider"
+        dots
+        infinite
+        arrows
+        speed={500}
+        slidesToShow={1}
+        slidesToScroll={1}
+      >
+        {data.featuredPosts.edges.map(({ node }) => (
+          <Jumbotron
+            key={`featured-post-${node.id}`}
+            title={node.frontmatter.title}
+            text={node.excerpt}
+            image={node.frontmatter.image}
+            href={`/blog/${node.fields.slug}`}
+            buttonText="Saiba mais"
+          />
+        ))}
+      </Slider>
 
       <CardGrid
         cards={featuredProjectsContent}
