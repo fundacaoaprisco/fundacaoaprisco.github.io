@@ -51,12 +51,13 @@ const BlogTemplate = ({ data }) => {
         <PostHeaderInfo>
           <PostDate>{getDate()}</PostDate>
         </PostHeaderInfo>
-        {postCategories.length && (
+        {postCategories && postCategories.length && (
           <CategoryList>
             {[postCategories].map(name => (
               <Tag key={`categories-${name}`} text={name} type="secondary" />
             ))}
-            {postProjects.length &&
+            {postProjects &&
+              postProjects.length &&
               [postProjects].map(name => (
                 <Tag key={`post-projects-${name}`} text={name} type="secondary" />
               ))}
