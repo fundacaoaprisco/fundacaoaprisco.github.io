@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import Carousel, { Dots } from '@brainhubeu/react-carousel'
+import '@brainhubeu/react-carousel/lib/style.css'
 
 import { Jumbotron, LinkButton } from '@molecules'
 import { CardGrid, ContributeBar } from '@organisms'
 import { frontmatterToCard } from '@utils'
 
 const Index = () => {
+  const [slide, setSlideIndex] = useState(0)
+
   const data = useStaticQuery(graphql`
     {
       blogs: allMarkdownRemark(
@@ -16,6 +20,7 @@ const Index = () => {
       ) {
         edges {
           node {
+            id
             frontmatter {
               title
               image
@@ -34,6 +39,26 @@ const Index = () => {
       ) {
         edges {
           node {
+            id
+            frontmatter {
+              title
+              image
+            }
+            fields {
+              slug
+            }
+            excerpt
+          }
+        }
+      }
+      featuredPosts: allMarkdownRemark(
+        filter: { fileAbsolutePath: { glob: "**/content/blog/*.md" } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 5
+      ) {
+        edges {
+          node {
+            id
             frontmatter {
               title
               image
@@ -52,6 +77,7 @@ const Index = () => {
           heroTitle
           heroText
           mission
+          peopleHelped
         }
       }
     }
@@ -69,8 +95,8 @@ const Index = () => {
     buttonText: 'Ler mais',
   })
 
-  const blogButton = <LinkButton to="/blog">Ver todas</LinkButton>
-  const projectsButton = <LinkButton to="/projetos">Todos os projetos</LinkButton>
+  const blogButton = <LinkButton href="/blog">Ver todas</LinkButton>
+  const projectsButton = <LinkButton href="/projetos">Todos os projetos</LinkButton>
 
   return (
     <>
@@ -79,10 +105,21 @@ const Index = () => {
         <meta name="description" content={data.SiteMetadata.frontmatter.mission} />
       </Helmet>
 
-      <Jumbotron
-        title={data.SiteMetadata.frontmatter.heroTitle}
-        text={data.SiteMetadata.frontmatter.heroText}
-      />
+      <Carousel value={slide} onChange={setSlideIndex} plugins={['infinite', 'fastSwipe']}>
+        <Jumbotron
+          title={data.SiteMetadata.frontmatter.heroTitle}
+          text={data.SiteMetadata.frontmatter.heroText}
+        />
+        <Jumbotron
+          title={data.SiteMetadata.frontmatter.heroTitle}
+          text={data.SiteMetadata.frontmatter.heroText}
+        />
+        <Jumbotron
+          title={data.SiteMetadata.frontmatter.heroTitle}
+          text={data.SiteMetadata.frontmatter.heroText}
+        />
+      </Carousel>
+      <Dots value={slide} onChange={setSlideIndex} />
 
       <CardGrid
         cards={featuredProjectsContent}
@@ -91,7 +128,7 @@ const Index = () => {
         button={projectsButton}
       />
 
-      <ContributeBar />
+      <ContributeBar number={data.SiteMetadata.frontmatter.peopleHelped} />
 
       <CardGrid
         cards={featuredBlogContent}

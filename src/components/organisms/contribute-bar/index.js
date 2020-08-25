@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { navigate } from 'gatsby'
 
 import icon from '@images/icone-contribuir.png'
@@ -13,12 +14,12 @@ import {
 
 import { Heading, Button } from '@atoms'
 
-const ContributeBar = () => (
+const ContributeBar = ({ number }) => (
   <StyledContributeBar>
     <StyledFlexGrid>
       <StyledImage src={icon} alt="Icone com duas mãos" />
       <Heading type="h2" white>
-        4.057
+        {number}
       </Heading>
       <StyledImpactText white>
         Pessoas impactadadas todos os anos pela Fundação Aprisco
@@ -29,11 +30,15 @@ const ContributeBar = () => (
         Ajude-nos a continuar <br />
         gerando impacto
       </StyledContributeText>
-      <Button white onClick={() => navigate('/blog/como-contribuir', { replace: true })}>
+      <Button white onClick={() => navigate('/como-contribuir')}>
         Veja como contribuir
       </Button>
     </StyledFlexGrid>
   </StyledContributeBar>
 )
+
+ContributeBar.propTypes = {
+  number: PropTypes.number.isRequired,
+}
 
 export default ContributeBar

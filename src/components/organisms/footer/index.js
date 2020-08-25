@@ -85,8 +85,6 @@ Footer.propTypes = {
     andress: PropTypes.string.isRequired,
     tel: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    heroTitle: PropTypes.string.isRequired,
-    heroText: PropTypes.string.isRequired,
   }).isRequired,
 }
 

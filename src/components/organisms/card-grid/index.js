@@ -22,7 +22,7 @@ const CardGrid = ({ cards, title, button, columns }) => {
       <SubtitleBar text={title} button={button} />
       <Grid container spacing={3}>
         {cards.map(project => (
-          <Grid key={`project-list-key-${project.title}`} item {...gridProps}>
+          <Grid key={`project-list-key-${project.id}`} item {...gridProps}>
             <Card content={project} />
           </Grid>
         ))}

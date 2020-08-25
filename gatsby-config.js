@@ -29,7 +29,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        htmlTitle: 'Admin - Fundação Aprisco',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

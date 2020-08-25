@@ -1,18 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 
-import { StyledLink } from './styled'
+import { StyledLink, InternalLink } from './styled'
 
-const LinkButton = ({ href, className, children, isNavLink, external, ...props }) =>
+const LinkButton = ({ href, className, children, isNavLink, external }) =>
+  // eslint-disable-next-line no-nested-ternary
   external ? (
     <StyledLink className={className} href={href}>
       {children}
     </StyledLink>
-  ) : (
-    <StyledLink className={className} as={Link} to={href} isNavLink={isNavLink} {...props}>
+  ) : isNavLink ? (
+    <InternalLink className={className} to={href} isNavLink>
       {children}
-    </StyledLink>
+    </InternalLink>
+  ) : (
+    <InternalLink className={className} to={href}>
+      {children}
+    </InternalLink>
   )
 
 LinkButton.propTypes = {

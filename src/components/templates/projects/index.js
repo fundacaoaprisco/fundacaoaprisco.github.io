@@ -46,12 +46,16 @@ const BlogTemplate = ({ data }) => {
       <PostImage src={image} />
       <HeaderArticle>
         <PostHeaderInfo>
-          <PostDate>Status do projeto:</PostDate>
-          {/* <PostDate>{getDate()}</PostDate> */}
-          {active !== null && typeof active !== 'undefined' && (
-            <div>
-              <Tag type={active ? 'primary' : 'secondary'} text={active ? 'Ativo' : 'Inátivo'} />
-            </div>
+          <PostDate>{getDate()}</PostDate>
+          <br />
+
+          {active !== null && typeof active !== 'undefined' && active !== false && (
+            <>
+              <PostDate>Status do projeto:</PostDate>
+              <div>
+                <Tag type={active ? 'primary' : 'secondary'} text={active ? 'Ativo' : 'Inátivo'} />
+              </div>
+            </>
           )}
         </PostHeaderInfo>
         <PostTitle type="h1">{title}</PostTitle>
@@ -61,4 +65,5 @@ const BlogTemplate = ({ data }) => {
     </PostContainer>
   )
 }
+
 export default BlogTemplate

@@ -1,12 +1,13 @@
 export const frontmatterToCard = ({ array, beforeHref = null, buttonText }) =>
-  array.reduce((newArray, item) => {
+  array.reduce((newArray, { node }) => {
     const transformedItem = {
-      image: item.node.frontmatter.image || '',
-      title: item.node.frontmatter.title,
-      text: item.node.excerpt || '',
-      href: beforeHref ? `${beforeHref}/${item.node.fields.slug}` : '',
+      id: node.id,
+      image: node.frontmatter.image || '',
+      title: node.frontmatter.title,
+      text: node.excerpt || '',
+      href: beforeHref ? `${beforeHref}/${node.fields.slug}` : '',
       button: buttonText,
-      active: item.node.frontmatter.active !== null ? item.node.frontmatter.active : null,
+      active: node.frontmatter.active !== null ? node.frontmatter.active : null,
     }
 
     return [...newArray, transformedItem]

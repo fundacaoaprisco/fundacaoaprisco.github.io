@@ -7,7 +7,7 @@ import { StyledLogo } from './styled'
 
 const Logo = () => (
   <Link to="/">
-    <StyledLogo to src={logoImage} alt="Logo Fundação Aprisco" />
+    <StyledLogo src={logoImage} alt="Logo Fundação Aprisco" />
   </Link>
 )
 

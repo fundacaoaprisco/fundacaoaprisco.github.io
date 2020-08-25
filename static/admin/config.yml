@@ -11,8 +11,10 @@ collections:
     folder: "content/blog"
     create: true
     fields:
-      - { name: date, label: "Data de postagem", widget: date }
+      - { name: date, label: "Data de postagem", widget: date, dateFormat: 'DD/MM/YYYY' }
       - { name: title, label: "Título do artigo" }
+      - { name: featured, label: "Artigo em destaque?", widget: "boolean", required: false }
+      - { name: isPublic, label: "Artigo público?", widget: "boolean", required: false }
       - { name: body, label: "Conteúdo", widget: markdown }
       - label: "Imagem de destaque"
         name: "image"
@@ -25,7 +27,7 @@ collections:
     folder: "content/projects"
     create: true
     fields:
-      - { name: date, label: "Data de início", widget: date }
+      - { name: date, label: "Data de início", widget: date, dateFormat: 'DD/MM/YYYY'  }
       - { name: title, label: "Titulo do projeto" }
       - { name: body, label: "Texto", widget: markdown }
       - { name: active, label: "Projeto ativo?", widget: "boolean", default: true}
@@ -47,13 +49,6 @@ collections:
         media_library:
           config:
             multiple: false
-  - name: "Páginas"
-    label: "Páginas"
-    folder: "content/paginas"
-    create: true
-    fields:
-      - { name: title, label: "Título da página" }
-      - { name: body, label: "Conteúdo", widget: markdown }
   - name: "Informações do site"
     label: "Informações do site"
     folder: "content/sitemetadata"
@@ -67,3 +62,4 @@ collections:
       - { name: email, label: "E-mail de contato" }
       - { name: heroTitle, label: "Titulo em destaque" }
       - { name: heroText, label: "Texto em destaque" }
+      - { name: peopleHelped, label: "Quantidade de pessoas impactadas por ano" }

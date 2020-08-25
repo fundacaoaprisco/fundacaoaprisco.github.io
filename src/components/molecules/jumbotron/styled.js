@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
-import { Text } from '@atoms'
-
 import vars from '@styles/variables'
 import heroBg from '@images/hero-image.png'
+
+import { Text } from '@atoms'
 
 export const StyledJumbotron = styled.div`
   border-radius: 4px;
@@ -19,6 +19,7 @@ export const StyledJumbotron = styled.div`
   height: 460px;
   margin-bottom: 3rem;
   padding: 2rem;
+  width: 100%;
 `
 
 export const JumbotronText = styled(Text)`

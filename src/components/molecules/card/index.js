@@ -13,7 +13,7 @@ const Card = ({ content, ...props }) => {
       <Link to={href}>
         <ImageWrapper disabled={active === false}>
           <img src={image} alt={title} />
-          {active !== null && typeof active !== 'undefined' && (
+          {active !== null && typeof active !== 'undefined' && active !== false && (
             <CardTag type={active ? 'primary' : 'secondary'} text={active ? 'Ativo' : 'Inátivo'} />
           )}
         </ImageWrapper>
