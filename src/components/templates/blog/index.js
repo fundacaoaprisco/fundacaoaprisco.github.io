@@ -24,6 +24,7 @@ export const pageQuery = graphql`
         image
         active
         postCategories
+        postProjects
       }
     }
   }
@@ -32,7 +33,7 @@ export const pageQuery = graphql`
 const BlogTemplate = ({ data }) => {
   const {
     markdownRemark: {
-      frontmatter: { title, image, date, postCategories },
+      frontmatter: { title, image, date, postCategories, postProjects },
       html,
     },
   } = data
@@ -52,10 +53,13 @@ const BlogTemplate = ({ data }) => {
         </PostHeaderInfo>
         {postCategories.length && (
           <CategoryList>
-            {console.log(postCategories)}
-            {postCategories.map(name => (
-              <Tag text={name} type="secondary" />
+            {[postCategories].map(name => (
+              <Tag key={`categories-${name}`} text={name} type="secondary" />
             ))}
+            {postProjects.length &&
+              [postProjects].map(name => (
+                <Tag key={`post-projects-${name}`} text={name} type="secondary" />
+              ))}
           </CategoryList>
         )}
         <PostTitle type="h1">{title}</PostTitle>
