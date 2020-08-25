@@ -4,6 +4,8 @@ title: Bendito Bazar
 active: true
 image: /images/whatsapp-image-2020-08-21-at-16.07.18-3-.jpeg
 ---
+![](/images/whatsapp-image-2020-08-21-at-16.07.18-2-.jpeg)
+
 O Bendito Bazar é um dos serviços da Fundação Aprisco em parceria com o Ministério Aprisco.   Entendendo nosso papel  de servir as pessoas, famílias, o meio ambiente e outros projetos sociais, nos movemos para receber doações vindas de pessoa Física e Jurídica e assim alimentarmos o nosso bazar. 
 
 Recebemos doações no nosso ponto de venda e coletamos doações quando surge a necessidade. 
