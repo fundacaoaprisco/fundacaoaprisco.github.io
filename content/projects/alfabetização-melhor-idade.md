@@ -2,7 +2,7 @@
 date: 2020-08-25T18:32:31.275Z
 title: Alfabetização Melhor Idade
 active: true
-image: /images/whatsapp-image-2020-08-21-at-16.52.40.jpeg
+image: /images/alfabetizacao-melhor-idade-projeto-fundacao-aprisco.png
 ---
 O trabalho com a terceira idade surgiu em vista da demanda de alfabetizar as senhoras já atendidas pela Fundação Aprisco, pois a maioria não sabia se quer assinar o próprio nome, partindo desse ponto iniciamos um grupo de alfabetização com algumas dessas senhoras, junto com a alfabetização percebemos também a necessidade de além de trabalhar a mente também de exercitar o corpo e assim com a ajuda da professora de Pilates Kátia uma vez por semana após a aula de alfabetização temos também uma aula de alongamento. Com o passar dos dias o serviço foi tomando forma e ganhando amplitude, pois nossas voluntárias buscam ter um olhar ampliado para as necessidades de nossas demandatárias.
 
