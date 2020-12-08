@@ -1,0 +1,6 @@
+export { default as Logo } from './logo'
+export { default as Container } from './container'
+export { default as Button } from './button'
+export { default as Heading } from './heading'
+export { default as Text } from './text'
+export { default as Tag } from './tag'
