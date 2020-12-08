@@ -44,20 +44,13 @@ module.exports = {
     },
     `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          {
-            family: `IBM Plex Serif`,
-            subsets: [`latin`],
-            variants: [`300`, `400`, `300i`],
-          },
-          {
-            family: `Overpass`,
-            subsets: [`latin`],
-            variants: [`300`, `400`, `700`],
-          },
+          `IBM Plex Serif\:300,400,300i`,
+          `Overpass\:300,400,700`, // you can also specify font weights and styles
         ],
+        display: 'swap',
       },
     },
     {
