@@ -88,3 +88,10 @@ collections:
       - { name: heroTitle, label: "Titulo em destaque" }
       - { name: heroText, label: "Texto em destaque" }
       - { name: peopleHelped, label: "Quantidade de pessoas impactadas por ano" }
+  - name: "Páginas"
+    label: "Páginas"
+    folder: "content/pages"
+    create: false
+    fields:
+      - { name: title, label: "Título" }
+      - { name: body, label: "Conteúdo", widget: markdown }

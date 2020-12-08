@@ -1,66 +1,111 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+
+import vars from '@styles/variables'
 
 import { Text, Heading } from '@atoms'
 import { PageTitle } from '@molecules'
 
-const Donate = () => (
-  <>
-    <PageTitle title="Como contribuir" />
-    <Grid container spacing={3}>
-      <Grid item>
-        <Text>
-          São mais de 50 familias atenditas mesalmente pela Fundação com recursos materiais e
-          espirituais. Além do Abrigo – Casa de passagem que toda noite abriga mais de 20 pessoas
-          vivem em situação de rua. E agora contamos com a Casa Pai Nosso que irá acomodar mães e
-          filhos em situação de risco. Para que esses projeto continuem acontecendo precisamos da
-          sua participação. Conheça todos os projetos da Fundação Aprisco{' '}
-        </Text>
-        <Text quote>
-          Para que tudo isso se realize, contamos com o apoio de diversos parceiros que juntamente
-          conosco sonham em fazer dessa cidade uma terra de mais oportunidades.
-        </Text>
-        <Heading type="h2">Doação em dinheiro</Heading>
-        <Text>
-          As doações em dinheiro pode ser feita através do Pagseguro ou depositado em nossa conta:
-        </Text>
+export const pageQuery = graphql`
+  {
+    markdownRemark(fileAbsolutePath: { glob: "**/content/pages/como-contribuir.md" }) {
+      id
+      html
+    }
+  }
+`
 
-        <Heading type="h3">Igreja Evangélica Ministério Aprisco</Heading>
+export const Article = styled.article`
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: ${vars['color-text']};
 
-        <Text bold>Banco do Brasil</Text>
-        <Text>
-          Agência: 3886-5 <br />
-          C.Corrente: 20.480-3
-        </Text>
+  & p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: ${vars['color-text']};
+    margin-bottom: 1rem;
+  }
 
-        <Text bold> Caixa Econômica Federal </Text>
-        <Text>
-          Agencia: 3138 <br />
-          Conta : 0475-1 <br />
-          Op: 003
-        </Text>
+  ol,
+  ul {
+    list-style: initial !important;
+    margin: 1rem;
+  }
 
-        <Heading type="h2">Todas as doações</Heading>
-        <Text>
-          Qualquer doação, seja de alimentos, em dinheiro, ou o que estiver ao seu alcance pode ser
-          entregue no nosso endereço: Rua João Martins da Silva, 526 1º andar, bairro São João, ou
-          entrar em contato: 75 3226-4433 contato@fundacaoaprisco.org
-        </Text>
-        <form
-          action="https://web.archive.org/web/20170825073505/https://pagseguro.uol.com.br/checkout/v2/donation.html"
-          method="post"
-          target="pagseguro"
-        >
-          <input
-            alt="Pague com PagSeguro - é rápido, grátis e seguro!"
-            name="submit"
-            src="https://web.archive.org/web/20170825073505im_/https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/209x48-doar-assina.gif"
-            type="image"
-          />
-        </form>
-      </Grid>
-    </Grid>
-  </>
-)
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    font-family: ${vars['font-title']};
+    color: ${vars['color-title']};
+    font-weight: 400;
+    margin: 1.5rem 0 1rem 0;
+  }
+
+  & h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    font-weight: 300;
+  }
+
+  & h2 {
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  & h4 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+
+  & h5 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  & h6 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  & a {
+    font-family: ${vars['font-text']};
+    color: ${({ isNavLink }) => (isNavLink ? vars['color-text'] : vars['color-primary'])};
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0;
+    transition: all 200ms ease;
+
+    &:hover {
+      color: ${({ isNavLink }) => (isNavLink ? vars['color-primary'] : vars['color-primary'])};
+      box-shadow: 0px 2px 0px 0px ${vars['color-primary']};
+    }
+  }
+`
+export const PostContainer = styled.div`
+  width: 90%;
+  max-width: 770px;
+  margin: 0 auto;
+`
+
+const Donate = ({ data }) => {
+  const {
+    markdownRemark: { html },
+  } = data
+
+  return (
+    <>
+      <PageTitle title="Como contribuir" />
+      <PostContainer>
+        <Article dangerouslySetInnerHTML={{ __html: html }} />
+      </PostContainer>
+    </>
+  )
+}
 
 export default Donate
